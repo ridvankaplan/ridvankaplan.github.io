@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Vulnhub &#8211; Rıdvan KAPLAN</title>
+	<atom:link href="https://ridvankaplan.github.io/category/vulnhub/feed" rel="self" type="application/rss+xml" />
+	<link>https://ridvankaplan.github.io/</link>
+	<description>All Izz Well</description>
+	<lastBuildDate>Sat, 09 May 2020 11:21:51 +0000</lastBuildDate>
+	<language>tr</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>HackInOS: 1 &#8211; Vulnhub</title>
+		<link>https://ridvankaplan.github.io/vulnhub/hackinos-1-vulnhub.html</link>
+					<comments>https://ridvankaplan.github.io/vulnhub/hackinos-1-vulnhub.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Fri, 15 Mar 2019 16:23:31 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Vulnhub]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=526</guid>
+
+					<description><![CDATA[Merhaba !!! Bu yazımda Vulnhub&#8217;ta GaziCyber tarafından hazırlanmış olan HackInOS makinesinin çözümünü paylaşacağım. Eğer makineyi çözmeyi düşünüyorsanız lütfen okumayınız. Takıldığınız yerlerde göz atıp kendiniz uğraşmanız&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!<br><br>Bu yazımda Vulnhub&#8217;ta GaziCyber tarafından hazırlanmış olan HackInOS makinesinin çözümünü paylaşacağım. </p>
+
+
+
+<p>Eğer makineyi çözmeyi düşünüyorsanız lütfen okumayınız. Takıldığınız yerlerde göz atıp kendiniz uğraşmanız size daha çok şey katacaktır. Öncelikle makinenin IP adresini <strong>/etc/hosts</strong> içerisine <strong>localhost</strong> olarak ekliyoruz.<br>Ardından nmap taramamızla açık portları inceliyoruz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nmap.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nmap.png" alt="" class="wp-image-527"/></a></figure>
+
+
+
+<p>Tüm portları taradık ve sadece<strong> 22, 8000</strong> portları açık olduğu gözüküyor.</p>
+
+
+
+<p>8000 portunda http server&#8217;ı çalışıyor. Web tarayıcımızda açtığımız da wordpress&#8217;in çalıştığı gözüküyor. Biraz baktıktan sonra herhangi bir şey bulamadım. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/main-page.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/main-page-1024x480.png" alt="" class="wp-image-528"/></a></figure>
+
+
+
+<p>Dirb ile dizinleri tarıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/dirb.png" alt="" class="wp-image-529"/></figure>
+
+
+
+<p>Dikkatimizi çeken <strong>/robots.txt</strong> bulunmakta. İçerisine baktığımızda iki sayfa ismi bulunmaktadır.</p>
+
+
+
+<pre class="wp-block-preformatted">Disallow:/upload.php
+Disallow:/uploads</pre>
+
+
+
+<p><strong>upload.php </strong>sayfasına baktığımızda dosya transferi  yapmamıza izin veriyor. Ama bazı filtrelemeler bulunmakta. Sayfanın kaynak kodunda ipucu amaçlı bir github linki bulunmakta. İncelediğimiz de upload.php nin kaynak kodu olduğu gözükmektedir.<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/upload-1024x169.png" alt="" class="wp-image-530"/></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/hint.png" alt="" class="wp-image-531"/></figure>
+
+
+
+<pre class="wp-block-code"><code>https:&#47;&#47;github.com/fatihhcelik/Vulnerable-Machine---Hint/blob/master/upload.php</code></pre>
+
+
+
+<p>Github linkinde yüklenen dosyanın kontrol edilmesi ve nereye nasıl isminin değiştirilip yüklendiği gözükmektedir. Dosya ismiyle birlikte <strong>1 ile 100 </strong>arasında rastgele bir sayı ile birleştirip <strong>md5</strong>&#8216;ini aldıktan sonra /uploads/ dizini içerisine uzantısını ekleyip yüklemektedir.</p>
+
+
+
+<p>Örneğin dosya ismi resim.png &gt; resim.png34 &gt; 761d063cafd767ae9504ca2006c4aec7.png  &gt; şeklinde /uploads dizinine yüklemektedir. Ayrıca dosyanın tipi de kontrol edilmektedir.</p>
+
+
+
+<p>Php shell yüklemeyi deneyebiliriz. Öncelikle /usr/share/webshells/php/php-reverse-shell.php dosyasını kendi ip adresimi değiştirerek düzenledim.</p>
+
+
+
+<p>Dosyayı yüklerken burp suite ile araya girip <strong>Content-Type:image/gif</strong> ve ilk satıra <code><strong>GIF89a;</strong></code>ekleyerek değiştiriyoruz. Çünkü kontrol esnasında bunları kontrol ediyor ve değiştirmezsek php uzantılı bir dosya yüklememize izin vermiyor.<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/php-shell-1024x512.png" alt="" class="wp-image-532"/></figure>
+
+
+
+<p>Yükledikten sonra /uploads dizinine baktığımızda forbidden alıyoruz. Yani dosyaları listeleyemiyoruz. Direkt ismi ile kaydetmediği için basit bir python script&#8217;i yazmam gerekti. Betiğim aşağıda bulunmaktadır.</p>
+
+
+
+<pre class="wp-block-code"><code>#!/usr/bin/env python
+
+import hashlib
+import requests
+
+print("******* Find The File !!! ************")
+
+filename = "php-reverse-shell.php"
+
+def request(url):
+    response = requests.head(url)
+    if response.status_code == 200:
+        print "Found!"
+        print url
+
+
+def md5Enc(file):
+	md5 = hashlib.md5(file.encode())
+	md5 = md5.hexdigest()
+	dir = "uploads/" + md5 + ".php"
+	#print(dir)
+	request("http://localhost:8000/" + dir)
+
+def loop():
+	for i in range(1,101):
+		md5Enc(filename + str(i))
+
+def main():
+	loop()
+
+main()
+</code></pre>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/find.png" alt="" class="wp-image-533"/></figure>
+
+
+
+<p>Ekran görüntüsündeki gibi bulduktan sonra <strong>nc</strong> ile dinleyip bağlantıya gidiyorum ve <strong>www-data </strong>kullanıcısı olarak shell alıyorum.<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/user-1024x263.png" alt="" class="wp-image-534"/></figure>
+
+
+
+<p>Python script&#8217;i ile etkileşimli aldıktan sonra yetki yükseltme adımlarına geçiyorum. İlk adımlardan biri olan SUID bit&#8217;e sahip olan dosyaları inceliyorum ve değişik bir komut dikkatimi çekiyor.</p>
+
+
+
+<p> <br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/suid.png" alt="" class="wp-image-535"/></figure>
+
+
+
+<p><strong>/usr/bin/tai</strong>l komutu ile dosyaları okuyabiliriz. Eğer bu komut root yetkisi ile çalışıyorsa ki çalışıyor root kullanıcısına özel bir dosya okuyalım. Örneğin <strong>/etc/shadow</strong> dosyası.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/shadow-1024x343.png" alt="" class="wp-image-536"/></figure>
+
+
+
+<p><strong>/etc/shadow </strong>dosyamızda root kullanıcısının parolasının hashli hali çıkıyor. Hemen localimize çekip kırmaya çalışıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/hash-crack-1024x285.png" alt="" class="wp-image-537"/></figure>
+
+
+
+<p><strong>john</strong> aracımızla kırıyoruz ve root kullanıcısının parolasına sahip oluyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/root.png" alt="" class="wp-image-538"/></figure>
+
+
+
+<p>Parolamızı girdikten sonra root kullanıcısına geçiyoruz ve flag’imizi okuyoruz. Ama makine henüz bitmiş değil. İç ağdaki diğer makinelerin IP adreslerini bulmak için&nbsp;<strong>arp</strong>&nbsp;komutunu kullanıyorum.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="637" height="144" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/arp.png" alt="" class="wp-image-633" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/arp.png 637w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/arp-300x68.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></figure>
+
+
+
+<p>3 tane IP karşımıza çıktı. Bu makinelerin açık portlarını&nbsp;<strong>nc</strong>&nbsp;ile tarayabiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="732" height="164" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/scan-ports.png" alt="" class="wp-image-634" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/scan-ports.png 732w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/scan-ports-300x67.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></figure>
+
+
+
+<p>172.18.0.3 ip’li makinede mysql portu açıkmış. İlk makineye girdiğimde konfigürasyon dosyalarını incelerken veritabanı ile ilgili bazı veritabanı bilgileri bulmuştum. /<strong>var/www/html/wp-config.php</strong>&nbsp;dosyasının içerisinde.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="703" height="296" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/wp-pass.png" alt="" class="wp-image-635" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/wp-pass.png 703w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/wp-pass-300x126.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></figure>
+
+
+
+<p>Mysql ile ilgili makineye bağlanmayı deneyelim.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="829" height="516" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1.png" alt="" class="wp-image-636" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1.png 829w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1-300x187.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1-768x478.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></figure>
+
+
+
+<p>Evet bağlandık ve veritabanlarını görüyoruz. Tablolarını ve verileri inceleyelim.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="818" height="830" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2.png" alt="" class="wp-image-637" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2.png 818w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2-296x300.png 296w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2-768x779.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></figure>
+
+
+
+<p>İlgili tablodan bazı bilgiler çıktı. Pw kısmı MD5 ile hashlenmiş gibi duruyor. Google’ladığımızda kırılmış hali karşımıza çıkıyor.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="143" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1.png" alt="" class="wp-image-638" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1.png 1024w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1-300x42.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1-768x107.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Makinelerden birinde ssh portu açıktı bu hesap bilgilerini deneyelim.<br></p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="799" height="368" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2.png" alt="" class="wp-image-639" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2.png 799w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2-300x138.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2-768x354.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></figure>
+
+
+
+<p>Evet ssh ile bağlandık. Root olmak için biraz araştırıyoruz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="826" height="226" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1.png" alt="" class="wp-image-640" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1.png 826w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1-300x82.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1-768x210.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></figure>
+
+
+
+<p>Bu sefer çok zorlanmadan dosyamızı buluyoruz. SUID biti ile çalışan bir dosya. Çalıştırıldığında root çıktısı veriyor. Strings ile içeriğini inceleyeliyoruz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="836" height="732" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2.png" alt="" class="wp-image-641" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2.png 836w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2-300x263.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2-768x672.png 768w" sizes="(max-width: 836px) 100vw, 836px" /></figure>
+
+
+
+<p>İçerisinde bir yerde whoami komutu geçiyor. C kodundan derlenmiş.&nbsp;<strong>system(“whoami”)&nbsp;</strong>gibi bir kod olmalı. Path değişkeni ile içerisindeki&nbsp;<strong>whoami&nbsp;</strong>komutunu istismar ederek root kullanıcısına geçebiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="158" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1.png" alt="" class="wp-image-642" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1.png 1024w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1-300x46.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1-768x119.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Ekran görüntüsünde ki gibi root kullanıcısına geçebiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="631" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-1024x631.png" alt="" class="wp-image-643" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-1024x631.png 1024w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-300x185.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-768x473.png 768w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4.png 1082w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Makineyi yayınladıkları için <strong>GaziCyber</strong> ekibine ve makinede tüm emeği geçen arkadaşlara teşekkür ederim.</p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/vulnhub/hackinos-1-vulnhub.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

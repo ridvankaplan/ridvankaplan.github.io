@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Linux &#8211; Rıdvan KAPLAN</title>
+	<atom:link href="https://ridvankaplan.github.io/category/linux/feed" rel="self" type="application/rss+xml" />
+	<link>https://ridvankaplan.github.io/</link>
+	<description>All Izz Well</description>
+	<lastBuildDate>Sat, 09 May 2020 11:40:34 +0000</lastBuildDate>
+	<language>tr</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Regular Expressions &#8211; Düzenli İfadeler</title>
+		<link>https://ridvankaplan.github.io/linux/regular-expressions-duzenli-ifadeler.html</link>
+					<comments>https://ridvankaplan.github.io/linux/regular-expressions-duzenli-ifadeler.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Fri, 12 Apr 2019 06:33:30 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=571</guid>
+
+					<description><![CDATA[Merhaba !!! Düzenli ifadeler kısaca regex&#8216;ler bir arama modelini tanımlamak için özel bir metin dizesidir. Örneğin bir metinde arama yapacaksanız Ctrl+F ile kelime kelime arayabilirsiniz.&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p><strong>Düzenli ifadeler</strong> kısaca<strong> regex</strong>&#8216;ler bir arama modelini tanımlamak için özel bir metin dizesidir. Örneğin bir metinde arama yapacaksanız <strong>Ctrl+F</strong> ile kelime kelime arayabilirsiniz. Ama daha özel bir arama yapmak isterseniz regex&#8217;leri kullanabilirsiniz. </p>
+
+
+
+<span id="more-571"></span>
+
+
+
+<p>Regex karşınıza çok sık çıkmayabilir. Ama programlama, siber güvenlik vs. ile ilgileniyorsanız karşınıza en az birkaç defa çıkacaktır. Regex linux sistemlerde veya birçok programlama dilinde ( Örneğin php, java, python vs.)  kullanılır. Farklı dillerde küçük farklılıklar olsa da aşağı yukarı hepsinde regex aynıdır.</p>
+
+
+
+<p>Giriş yapmadan önce aslında linux kullanan herkes regex kullanmıştır. Ama isminin regex olduğunu bilmiyor olabilir. Örneğin dosyaları listeleyeceksiniz ama dosyanın devamını hatırlamıyorsunuz. Hepsini listelemek için <strong>*</strong> karakterini kullanırız.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-1-1.png" alt="" class="wp-image-573"/></figure>
+
+
+
+<p>Regex&#8217;in birçok özel karakteri vardır. Birçoğundan örnekler göstereceğim ama ayrıca sizinde denemenizi tavsiye ederim. </p>
+
+
+
+<p><strong>\d</strong> &#8211; Metindeki 0 ile 9 arasındaki rakamlardan herhangi birisini bulur.</p>
+
+
+
+<p><strong>.</strong> &#8211; Nokta herhangi bir karaktere yani rakam, harf, boşluk ve her şey için kullanılabilir. Eğer gerçek nokta karakterini kullanacaksanız<strong> \ </strong>ile özel olmasından kaçınabilirsiniz.</p>
+
+
+
+<p><strong>[abcz]</strong> &#8211; Köşeli parantez içerisinde harf belirterek eşleşme yapabiliriz. Örnekteki regex&#8217;te eğer metinde abcz harflerinden <strong>herhangi biri</strong> varsa eşleşme yapacaktır.</p>
+
+
+
+<p><strong>[^ab]</strong> &#8211; Köşeli parantez içerisinde <strong>^</strong> karakteri ile olumsuzluk verebiliriz. Örnekteki regex&#8217;te eğer metinde ab harflerinden <strong>herhangi birinden</strong> olmayanlarla eşleşme yapacaktır. </p>
+
+
+
+<p><strong>[a-dA-Z0-4]</strong> &#8211; Köşeli parantez içerisinde belirli harf veya sayı aralıkları verip eşleşme yapabiliriz. Örneğin a ile d arasında, A ile Z arasında veya 0 ile 4 arasında herhangi bir harf, sayı varsa eşleşme yapacaktır. Küçük büyük harf gördüğünüz üzere etkiliyor.</p>
+
+
+
+<p><strong>\w</strong> &#8211; Herhangi bir alfanümerik karakterleri eşleştirmemize yarar. Alfanümerik karakterler <strong>harfler, rakamlar</strong> olabilir. Burada ayrıca _ dahil edilmiştir. Yani <strong>[a-zA-Z0-9_]</strong> regex&#8217;inin kısaltılmış halidir.</p>
+
+
+
+<p><strong>{ }</strong> &#8211; Süslü parantezler içerisinde istediğimiz karakterin aralığını belirtebiliriz. Örneğin<strong> a{3,5}</strong> regex&#8217;inde a harfinden 3 ile 5 arasında olanları eşleştir gibi.</p>
+
+
+
+<p><strong>+ ve *</strong>  karakterleri aşağı yukarı aynı görevi görür. İkisinde de önceki karakterin eşleştiği yere kadar eşleştirir. Örneğin normal de<strong> [a-f]</strong> tek bir karakteri eşleştirir bırakır. Ama  <strong>[a-f]+</strong> a ile f arasında herhangi bir karakter eşleşmeyene kadar devam edecektir.  + ile * farkı ise + da en az 1 karakter eşleşmesi istenir. Ama * da bu istenmez. Yani hiçbir karakter eşleşmese de olur.</p>
+
+
+
+<p><strong>?</strong> &#8211; Soru işaretimiz de özel bir karakterdir. İsteğe bağlı karakter belirtmemize yarar. Örneğin<strong> ab?c </strong> regex&#8217;i <strong>abc </strong>veya <strong>ac</strong> karakterlerini eşleştirecektir. Eğer gerçek<strong> ? </strong>işaretini kullanmak isterseniz<strong> \?</strong> şeklinde kullanabilirsiniz.</p>
+
+
+
+<p><strong>\s</strong> &#8211; Whitespace karakterimizdir. Boşluk, tab veya yeni satır işlemlerinde ortak olarak kullanılır.</p>
+
+
+
+<p><strong>^ ve $</strong>   Eğer <strong>^</strong> karakteri<strong> []</strong> içinde değil de dışında ise olumsuzluk anlamında değil belirttiğimiz karakter grubu satırın başında olmak zorunda anlamındadır.<strong> $ </strong>da tam tersidir. Belirttiği karakter grubu satırın sonunda olduğunda eşleşme yapacaktır. Örneğin<strong> ^Rıdvan Kaplan$ </strong> Satırın başı Rıdvan ile başlayan, arasında 1 boşluk olduktan sonra ve satırın sonu Kaplan ile biten kısımları eşleştirme yapacaktır.</p>
+
+
+
+<p><strong>\D \W \S</strong> &#8211; Özel karakterlerin büyük halleri ise tersi durumunu belirtir. Örneğin<strong> \d</strong> herhangi bir rakamı belirtir. <strong>\D</strong> ise rakam olmayan herhangi bir karakter.</p>
+
+
+
+<p><strong>()</strong>   &#8211; Parantezler ile gruplama yapılabilir. Örnek aşağıda verilmiştir. </p>
+
+
+
+<p>Parantez içerisinde<strong> ?</strong> kullanımı ile gruba isim verilebilir.<strong> (?&lt;İsim&gt;) </strong>şeklinde kullanımı vardır.</p>
+
+
+
+<p>Birkaç örnek yapalım. Bir sitemiz var. Bize görevler veriyor ve çözmemiz isteniyor. Referans olarak kullandığım sitede siz de alıştırmalarınızı yapabilirsiniz.  <a rel="noreferrer noopener" aria-label="https://regexone.com/  (yeni sekmede açılır)" href="https://regexone.com/" target="_blank">https://regexone.com/ </a>  </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-2-2-1024x222.png" alt="" class="wp-image-582"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Bu görevde 3 metin verilmiş. Hepsinin eşleşmesi sağlanacak bir regex yazılması istenmiş. Farklı yolları olsa da örneğin genel olarak <strong>.*</strong> şeklinde daha özel regex yazmamız gerekir. Örneğin <strong>[a-z\d\s&#8221;=]+</strong> şeklinde.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-3-1024x358.png" alt="" class="wp-image-583"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Sıradaki görev de ilk 3 metin eşleşecek alttaki 3 metin ise eşleşmemesi isteniyor. Burada da<strong> [cmf]an</strong> şeklinde bir regex ile geçebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-4-1024x348.png" alt="" class="wp-image-584"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Aynı şekilde burada da bazı metinlerin eşleşmemesi isteniyor. A ile C arasında herhangi bir karakter ve devamı alfanümerik olacak şeklinde yazdığımızda geçmiş oluyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-5-1024x239.png" alt="" class="wp-image-585"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Burada da wa karakteriyle başlayan, z karakterinden 3 ile 5 aralığı kadar olan ve devamı up ile biten metinleri eşleştiren regex&#8217;imizi yazıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-6-1024x275.png" alt="" class="wp-image-586"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Burada + ile * &#8216;ın farkını kullanıyoruz. * boş olsa da eşleştirir ama + boş olduğunda eşleştirme yapmaz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-7-1024x244.png" alt="" class="wp-image-587"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Regex&#8217;lerde gruplama kullanabiliriz. Gruplama şu işimize yarar. Örneğin <strong>.pdf </strong>uzantılı dosyaların isimlerini almamız gerekiyor. Normal <strong>\w+.pdf$</strong> regex&#8217;i ile metni eşleştiririz. Ama dosyanın ismini alamayız. burada gruplama devreye giriyor ve işimizi görüyor. İstediğimiz kısımlara <strong>()</strong> içerisine aldığımızda gruplama işlemini yapıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-8-1024x249.png" alt="" class="wp-image-588"/><figcaption><br></figcaption></figure>
+
+
+
+<p>İç içe gruplama da yapabiliriz. Örnekteki gibi tarih&#8217;in tamamı ve sadece yıl&#8217;ı ayrı ayrı gruplandırabiliriz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-9-1024x264.png" alt="" class="wp-image-589"/></figure>
+
+
+
+<p>Birçok kişinin aşina olduğu mantıksal koşul olan <strong>veya</strong>&#8216;yı gruplar içinde kullanabiliriz.<strong> | </strong>karakteriyle kullanılır.</p>
+
+
+
+<p>Bir tane örnekte log üzerinden denedim. Örnek log kendi makineniz üzerinden veya internet üzerinden alabilirsiniz. Benim aldığım site <a href="https://www.sumologic.com/blog/apache-logs-vs-nginx-logs/" target="_blank" rel="noreferrer noopener" aria-label="https://www.sumologic.com/blog/apache-logs-vs-nginx-logs/  (yeni sekmede açılır)">https://www.sumologic.com/blog/apache-logs-vs-nginx-logs/ </a></p>
+
+
+
+<p>Yazdığım regex ve örnek log ektedir. <a href="https://paste.ubuntu.com/p/8cYGT3JW45/">h</a><a rel="noreferrer noopener" aria-label="ttps://paste.ubuntu.com/p/8cYGT3JW45/ (yeni sekmede açılır)" href="https://paste.ubuntu.com/p/8cYGT3JW45/" target="_blank">ttps://paste.ubuntu.com/p/8cYGT3JW45/</a></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-10-1024x529.png" alt="" class="wp-image-603"/></figure>
+
+
+
+<p>Son kısımda kullandığım site  <a rel="noreferrer noopener" aria-label=" (yeni sekmede açılır)" href="http://regex101.com/" target="_blank">http://regex101.com/</a> </p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…<br></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/linux/regular-expressions-duzenli-ifadeler.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>SUID Biti ile Yetki Yükseltme</title>
+		<link>https://ridvankaplan.github.io/linux/suid-biti-ile-yetki-yukseltme.html</link>
+					<comments>https://ridvankaplan.github.io/linux/suid-biti-ile-yetki-yukseltme.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Fri, 08 Mar 2019 17:31:12 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=502</guid>
+
+					<description><![CDATA[Merhaba !!! Bu yazımda SUID bitinin ne olduğundan bahsedeceğim ve birkaç demo yapacağım. Boot2root makinelerinde normal kullanıcı ile shell aldıktan sonra yetki yükseltmek (privilige escalation)&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Bu yazımda <strong>SUID</strong> bitinin ne olduğundan bahsedeceğim ve birkaç demo yapacağım. Boot2root makinelerinde normal kullanıcı ile shell aldıktan sonra yetki yükseltmek (privilige escalation) için çalışmalara başlanır. Bu durumda ilk önce dosyaların izinleri kontrol edilir.</p>
+
+
+
+<span id="more-502"></span>
+
+
+
+<p><strong>Not</strong>: İzin yapılarını biliyorsanız direkt SUID biti kısmına atlayabilirsiniz.</p>
+
+
+
+<p>Linux&#8217;ta dosyalar temel olarak 3 izin yapısıyla çalışır. Okuma, yazma ve çalıştırma izinleri bulunur. Farklı kullanıcılara farklı izinleri verebilirsiniz. Hangi kullanıcıya hangi izni verdiğinize veya kısıtladığınıza dikkat etmek gerekir. </p>
+
+
+
+<ul><li>Okuma İzni        (r)   &gt;  4</li><li>Yazma İzni          (w) &gt;  2</li><li>Çalıştırma İzni   (x)   &gt;  1</li></ul>
+
+
+
+<p>Örnek olarak <strong>chmod 741 dosya_ismi</strong> komutu ile izin verilmiş bir dosyayı inceleyelim. İzin yapısı aşağıdaki şekilde oluşacaktır.</p>
+
+
+
+<pre class="wp-block-code"><code> -rwxr----x </code></pre>
+
+
+
+<p>Soldaki kısım<strong> rwx</strong> dosyanın sahibinin, ortaki kısım <strong>r &#8211; &#8211;</strong> kullanıcının ait olduğu grubun, sağdaki kısım <strong>&#8211; &#8211; x</strong> ise diğer kullanıcıların  izinleridir. Kullanıcının yazma, çalıştırma ve okuma izni bulunmaktadır. Kullanıcının grubu için sadece okuma izni bulunmaktadır. Diğer kullanıcılar için ise sadece çalıştırma izni bulunmaktadır. En soldaki <strong>&#8211; </strong>ise normal bir dosya olduğunu belirtir.</p>
+
+
+
+<p><strong>SUID İzni Nedir ? </strong></p>
+
+
+
+<p>Temel izinler dışında özel bazı izinler vardır. Bunlardan biri <strong>SUID (Set Owner User ID Up On Execution)  </strong>bitidir.  Kullanıcıların belirli bir kullanıcının izinleriyle bir dosyayı çalıştırmalarına izin veren bir izin türüdür. SUID izinleri olan dosyalar daha yüksek ayrıcalıklarla çalışır. Hedef sisteme root olmayan bir kullanıcı olarak eriştiğimizi ve SUID bit etkin dosyaları bulduğumuzu varsayalım. Bulunan dosya, program veya komut root haklarıyla çalıştırılabilir.</p>
+
+
+
+<p>SUID izni 2 şekilde verilebilir<strong>. chmod u+s dosya_ismi </strong>veya<strong> chmod 4741<br>dosya_ismi </strong>gibi verildikten sonra şu şekilde olmalıdır  &gt;</p>
+
+
+
+<pre class="wp-block-code"><code> -rwsr----x</code></pre>
+
+
+
+<p><strong>Sunucuda SUID Bitine Sahip Dosyaları Nasıl Bulunur  ?</strong></p>
+
+
+
+<pre class="wp-block-code"><code>find dizin -perm -4000 -exec ls -ldb {} \; 2>/dev/null</code></pre>
+
+
+
+<p><strong>dizin</strong> &gt; Hangi dizinden kontrol etmeye başlanacağı belirtilir.<br><strong>-perm -4000 </strong>&gt; Sadece izni 4000 olan dosyaları bulur.<br><strong>-exec ls -ldb</strong>&gt; Çıktıyı ls -ldb komutunun çıktısı şeklinde basar.<br><strong>2&gt;/dev/null</strong>&gt; Dosyaları kontrol ederken izin hataları ile karşılaştığında ekrana basmamak için belirtilir.<br>Yukarıdaki komut tek yol değildir.  Az veya daha çok parametreler ile de bulabilirsiniz. Benim genellikle kullandığım komut yukarıdaki gibidir. Örneğin <strong>-user root </strong>parametresi ekleyerek &gt; Yalnızca root kullanıcısına sahip dosyaları bulabilirsiniz.<br></p>
+
+
+
+<p><strong>Suid Biti Nasıl Sömürülür ? </strong></p>
+
+
+
+<p>İlk önce suid bitine sahip dosya veya komutlar kontrol edilir.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/suidCikti.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/suidCikti.png" alt="" class="wp-image-511"/></a></figure>
+
+
+
+<p>Örnek olarak / dizininin altındaki suid bitine sahip dosyaları (komutlarda bir <strong><a rel="noreferrer noopener" aria-label="ELF dosyasıdır (yeni sekmede açılır)" href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format" target="_blank">ELF dosyasıdır</a>)</strong>  bulup /tmp dizini içerisinde bir dosyaya yazdırıldı. İçeriği ise ekran görüntüsündeki gibidir. Bazı dosyaların izinlerini demo olması açısından değiştirdim. Sisteminizde değiştirmediyseniz aşağıdaki dosyalar suid bitine sahip olmayacaktır.</p>
+
+
+
+<p>Öncelikle bir dosyada suid biti varsa o dosya ile farklı şekillerde de yetkiniz olmayan işlemler yapabilirsiniz.</p>
+
+
+
+<p><strong>/bin/nano</strong></p>
+
+
+
+<p>Nano komutu ile istediğimiz dosyayı değiştirebileceğimiz için aklımıza ilk olarak <strong>/etc/sudoers</strong> dosyasını değiştirmek gelebilir. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-1.png" alt="" class="wp-image-515"/></a></figure>
+
+
+
+<p>Örneğin normalde<strong> /etc/sudoers </strong>dosyasını okuma bile yetkimiz yokken nano komutu suid bitine sahip olduğu için değiştirmeye çalışalım.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-2-1024x506.png" alt="" class="wp-image-516"/></a></figure>
+
+
+
+<p>En alt kısmına  ekran görüntüsündeki gibi satır eklenir.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-3-1024x275.png" alt="" class="wp-image-517"/></a></figure>
+
+
+
+<p><strong>/usr/bin/file</strong></p>
+
+
+
+<p>Ve parola sorulmadan root shell&#8217;i alınır.<br>File komutu ile dosyaların içeriğini okuyabiliriz. Akla gelen ilk okunabilecek yetkili dosya tüm kullanıcıların parolasının hash değerlerinin tutulduğu<strong> /etc/shadow</strong> dosyası okunabilir. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/file-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/file-1-1024x126.png" alt="" class="wp-image-512"/></a></figure>
+
+
+
+<p>Ekran görüntüsünde suid biti verilmeden önceki hali ve sonraki hali bulunmaktadır. Suid biti verildikten sonra dosyanın içeriği okunabilmektedir. Çıkan değerler parolalarının hash değerleri olacağı için bir wordlist ile kırılması gerekir.</p>
+
+
+
+<p><strong>/usr/bin/find</strong></p>
+
+
+
+<p>Find komutu dosyaları bulmamıza yarar ama ayrıca linux komutları çalıştırabiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/find-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/find-1.png" alt="" class="wp-image-513"/></a></figure>
+
+
+
+<p>Örneğin ekran görüntüsünde ki gibi parametrelerini vererek <strong>/bin/sh </strong>komutunu çalıştırılabilir ve root shell&#8217;i alınır.</p>
+
+
+
+<p><strong>/usr/bin/python2.7</strong></p>
+
+
+
+<p>Python da linux komutlarını çalıştırabileceğiniz için root yetkisiyle shell alınır.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/python-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/python-1.png" alt="" class="wp-image-514"/></a></figure>
+
+
+
+<p>Bu komutlar gibi birçok komut olabilir. Şuana dek en düzenli ve sade şeklinde bulunan<a rel="noreferrer noopener" aria-label=" bu siteyi  (yeni sekmede açılır)" href="https://gtfobins.github.io/" target="_blank"> bu siteyi </a>gördüm. Mantığı anladıysanız diğer örnekleri de rahatlıkla anlayabilirsiniz..<br></p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/linux/suid-biti-ile-yetki-yukseltme.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Yetki Yükseltme CTF Sorusu</title>
+		<link>https://ridvankaplan.github.io/linux/yetki-yukseltme-ctf-sorusu.html</link>
+					<comments>https://ridvankaplan.github.io/linux/yetki-yukseltme-ctf-sorusu.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Mon, 07 Jan 2019 10:53:20 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=463</guid>
+
+					<description><![CDATA[Merhaba !!! Geçen haftalarda 3 arkadaşımla birlikte katıldığımız bir CTF&#8217;te geçen bir sorunun çözümünü ve nasıl hazırlandığını paylaşacağım. Öncelikle CTF&#8217;te hedef makineye erişip ve yetki&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Geçen haftalarda 3 arkadaşımla birlikte katıldığımız bir CTF&#8217;te geçen bir sorunun çözümünü ve nasıl hazırlandığını paylaşacağım.</p>
+
+
+
+<span id="more-463"></span>
+
+
+
+<p>Öncelikle CTF&#8217;te hedef makineye erişip ve yetki yükselttikten sonra tüm soruları görebiliyorduk. Sorular internet ortamında yayınlanmadığı için aklımda kalan bu soruyu paylaşıyorum. Çok kolay bir soruydu. Hedef makineden shell aldıktan sonra root olmamız gerekiyordu.</p>
+
+
+
+<p>Öncelikle<strong> sudo -l</strong> komutuyla ayrıcalıklı dosyalara bakmak istedim ve aşağıdaki gibi bir çıktı gördüm.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1-1024x152.png" alt="" class="wp-image-464"/></a></figure>
+
+
+
+<p>Masaüstündeki bir dosyanın root haklarıyla ama parola gerekmeksizin çalıştırabiliyordu. Birkaç yolla root olabilirdiniz. Örneğin bu dosya bash dosyası olduğu için etkileşimli shell almak için kullanılan python scriptini dosyanın içeriğine yazıp çalıştırarak.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-2.png" alt="" class="wp-image-465"/></a></figure>
+
+
+
+<p>Diğer bir örnek ise <strong>symlink</strong> kullanarak root olunabilir.</p>
+
+
+
+<p>Öncelikle masaüstündeki dosya silinir. Çünkü aynı isimde dosya olduğunda symlink veremezsiniz. <strong>/bin/bash</strong> yoluna symlink verilir ve <strong>sudo</strong> komutu ile çalıştırılır.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-3.png" alt="" class="wp-image-466"/></a><figcaption><br></figcaption></figure>
+
+
+
+<p>Değişiklik olması amacıyla ek olarak bu sorunun nasıl düzenlendiğini paylaşacağım. <strong>sudo </strong>komutunun yetkileriyle alakalı düzenlemeler <strong>/etc/sudoers</strong> dosyasından yapılır.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-4-1024x595.png" alt="" class="wp-image-468"/></a></figure>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-6-1024x166.png" alt="" class="wp-image-469"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Varsayılan olarak gelen <strong>sudoers</strong> dosyası ve komutununda çıktısı ekran görüntülerindeki gibidir</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-5.png" alt="" class="wp-image-467"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Ayrıcalıklı dosyayı eklemek için <strong>/etc/sudoers </strong>içine en altta eklediğim gibi ekleyerek verilen dosyanın root yetkileriyle ama herhangi bir parolaya ihtiyacı olmadan çalıştırmasına izin verir. Düzenlediğimiz sudoers dosyasının çıktısıda CTF sorumuz oluyor.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1-1-1024x152.png" alt="" class="wp-image-470"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/linux/yetki-yukseltme-ctf-sorusu.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

